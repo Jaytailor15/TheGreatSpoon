@@ -1,0 +1,2485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>The Great Spoon - Catering Website</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta
+      content="Professional catering services by The Great Spoon, a unit of Shree Radhe Caterers"
+      name="description"
+    />
+
+    <!-- Favicon -->
+    <link href="img/tsg-logo.png" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Grotesk&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Font Stylesheet -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom Styles -->
+    <style>
+      /* Remove rounded corners from service card buttons */
+      .service-card .btn {
+        border-radius: 0 !important;
+      }
+    </style>
+
+    <!-- Splash Screen Stylesheet -->
+    <link href="css/splash.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+    
+    <!-- Smooth Scrolling Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              // Update active link
+              document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+                link.classList.remove('active');
+              });
+              this.classList.add('active');
+              
+              // Smooth scroll to target
+              window.scrollTo({
+                top: targetElement.offsetTop - 100, // Adjust for fixed header
+                behavior: 'smooth'
+              });
+              
+              // Close mobile menu if open
+              const navbarCollapse = document.querySelector('.navbar-collapse');
+              if (navbarCollapse.classList.contains('show')) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {toggle: false});
+                bsCollapse.hide();
+              }
+            }
+          });
+        });
+        
+        // Update active link on scroll
+        const sections = document.querySelectorAll('section[id], div[id]');
+        window.addEventListener('scroll', function() {
+          let current = '';
+          const scrollPosition = window.scrollY + 150;
+          
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+              current = '#' + section.getAttribute('id');
+            }
+          });
+          
+          document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === current) {
+              link.classList.add('active');
+            }
+          });
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="splash-screen">
+      <div class="splash-bg"></div>
+      <div class="splash-content">
+        <img
+          src="img/tsg-logo.png"
+          alt="The Great Spoon"
+          class="splash-logo"
+          style="border: none; outline: none"
+        />
+        <div class="splash-loading">Loading...</div>
+      </div>
+    </div>
+
+    <!-- Spinner Start -->
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div
+        class="spinner-grow text-danger"
+        style="width: 3rem; height: 3rem"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top">
+      <div class="container">
+        <nav
+          class="navbar navbar-expand-lg navbar-light border-bottom border-2 border-white"
+        >
+          <a href="index.html" class="navbar-brand">
+            <img
+              src="img/tsg-logo.png"
+              alt="The Great Spoon Logo"
+              style="height: 70px"
+            />
+          </a>
+          <button
+            type="button"
+            class="navbar-toggler ms-auto me-0"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto">
+              <a href="#home" class="nav-item nav-link active" data-section="home">Home</a>
+              <a href="#about" class="nav-item nav-link" data-section="about">About Us</a>
+              <a href="#services" class="nav-item nav-link" data-section="services">Our Services</a>
+              <a href="#events" class="nav-item nav-link" data-section="events">Events</a>
+              <a href="#testimonials" class="nav-item nav-link" data-section="testimonials">Testimonials</a>
+              <a href="#contact" class="nav-item nav-link" data-section="contact">Contact Us</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Hero Section -->
+    <div id="home">
+    <div
+      id="heroCarousel"
+      class="carousel slide carousel-fade mb-5"
+      data-bs-ride="carousel"
+      data-bs-interval="6000"
+      data-bs-pause="false"
+    >
+      <!-- Global Overlay -->
+      <div
+        class="overlay-gradient"
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.2)
+          );
+          z-index: 1;
+          pointer-events: none;
+        "
+      ></div>
+
+      <!-- Dots -->
+      <div class="carousel-indicators" style="bottom: 25px; z-index: 2">
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+          style="
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 6px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+          "
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+          style="
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 6px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+          "
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+          style="
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 6px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+          "
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+          style="
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 6px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+          "
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="4"
+          aria-label="Slide 5"
+          style="
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 6px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+          "
+        ></button>
+      </div>
+
+      <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div
+            class="hero-header position-relative"
+            style="height: calc(100vh - 1px); overflow: hidden"
+          >
+            <picture class="position-absolute w-100 h-100">
+              <source srcset="img/1.jpg" media="(min-width: 1200px)" />
+              <source srcset="img/1.jpg" media="(min-width: 768px)" />
+              <img
+                src="img/1.jpg"
+                alt="Catering Hero Image"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  filter: brightness(0.4);
+                "
+              />
+            </picture>
+            <div
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+              "
+            ></div>
+
+            <div class="container h-100">
+              <div
+                class="row h-100 align-items-center justify-content-center text-center"
+                style="padding-top: 80px"
+              >
+                <div class="col-lg-10">
+                  <h1
+                    class="display-2 text-white mb-3 animated fadeInUp"
+                    style="
+                      font-family: 'Playfair Display', serif;
+                      letter-spacing: 1.5px;
+                      font-size: calc(2.5rem + 2vw);
+                    "
+                  >
+                    Savor the <span class="text-danger">Flavors</span> with Us
+                  </h1>
+                  <p
+                    class="fs-5 text-white mb-4 animated fadeInUp delay-1"
+                    style="
+                      font-family: 'Source Sans Pro', sans-serif;
+                      font-weight: 300;
+                      letter-spacing: 0.5px;
+                      max-width: 800px;
+                      margin: 0 auto;
+                    "
+                  >
+                    Crafting extraordinary culinary experiences with passion and
+                    precision
+                  </p>
+                  <div
+                    class="border-top border-bottom border-white py-3 px-4 animated fadeInUp delay-2"
+                    style="max-width: 600px; margin: 0 auto"
+                  >
+                    <h5
+                      class="text-white"
+                      style="
+                        font-family: 'Source Sans Pro', sans-serif;
+                        letter-spacing: 2px;
+                        font-weight: 400;
+                        font-size: 1rem;
+                      "
+                    >
+                      AWARD-WINNING CATERING SINCE 1990
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="hero-header position-relative" style="height: 100vh">
+            <picture class="position-absolute w-100 h-100">
+              <source srcset="img/2.jpg" media="(min-width: 1200px)" />
+              <source srcset="img/2.jpg" media="(min-width: 768px)" />
+              <img
+                src="img/2.jpg"
+                alt="Fresh Ingredients Hero Image"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  filter: brightness(0.4);
+                "
+              />
+            </picture>
+            <div
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+              "
+            ></div>
+            <div class="container h-100">
+              <div
+                class="row h-100 align-items-center justify-content-center text-center"
+              >
+                <div class="col-lg-10">
+                  <h1
+                    class="display-1 text-white mb-4 animated fadeInUp"
+                    style="
+                      font-family: 'Playfair Display', serif;
+                      letter-spacing: 2px;
+                    "
+                  >
+                    Crafted with
+                    <span class="text-danger">Fresh</span> Ingredients
+                  </h1>
+                  <p
+                    class="fs-4 text-white mb-4 animated fadeInUp delay-1"
+                    style="
+                      font-family: 'Source Sans Pro', sans-serif;
+                      font-weight: 300;
+                      letter-spacing: 1px;
+                    "
+                  >
+                    Every dish is prepared with carefully selected premium
+                    ingredients
+                  </p>
+                  <div
+                    class="border-top border-bottom border-white py-4 px-4 animated fadeInUp delay-2"
+                  >
+                    <h5
+                      class="text-white"
+                      style="
+                        font-family: 'Source Sans Pro', sans-serif;
+                        letter-spacing: 3px;
+                        font-weight: 400;
+                      "
+                    >
+                      SEASONAL MENUS TAILORED TO YOUR TASTE
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <div class="hero-header position-relative" style="height: 100vh">
+            <picture class="position-absolute w-100 h-100">
+              <source srcset="img/3.jpg" media="(min-width: 1200px)" />
+              <source srcset="img/3.jpg" media="(min-width: 768px)" />
+              <img
+                src="img/3.jpg"
+                alt="Events Hero Image"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  filter: brightness(0.4);
+                "
+              />
+            </picture>
+            <div
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+              "
+            ></div>
+            <div class="container h-100">
+              <div
+                class="row h-100 align-items-center justify-content-center text-center"
+              >
+                <div class="col-lg-10">
+                  <h1
+                    class="display-1 text-white mb-4 animated fadeInUp"
+                    style="
+                      font-family: 'Playfair Display', serif;
+                      letter-spacing: 2px;
+                    "
+                  >
+                    Events Done <span class="text-danger">Right</span>
+                  </h1>
+                  <p
+                    class="fs-4 text-white mb-4 animated fadeInUp delay-1"
+                    style="
+                      font-family: 'Source Sans Pro', sans-serif;
+                      font-weight: 300;
+                      letter-spacing: 1px;
+                    "
+                  >
+                    From intimate gatherings to grand celebrations, we deliver
+                    excellence
+                  </p>
+                  <div
+                    class="border-top border-bottom border-white py-4 px-4 animated fadeInUp delay-2"
+                  >
+                    <h5
+                      class="text-white"
+                      style="
+                        font-family: 'Source Sans Pro', sans-serif;
+                        letter-spacing: 3px;
+                        font-weight: 400;
+                      "
+                    >
+                      EXPERT CHEFS • ELEGANT SERVICE • GREAT VALUE
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="carousel-item">
+          <div class="hero-header position-relative" style="height: 100vh">
+            <picture class="position-absolute w-100 h-100">
+              <source srcset="img/4.jpg" media="(min-width: 1200px)" />
+              <source srcset="img/4.jpg" media="(min-width: 768px)" />
+              <img
+                src="img/4.jpg"
+                alt="Special Events Hero Image"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  filter: brightness(0.4);
+                "
+              />
+            </picture>
+            <div
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+              "
+            ></div>
+            <div class="container h-100">
+              <div
+                class="row h-100 align-items-center justify-content-center text-center"
+              >
+                <div class="col-lg-10">
+                  <h1
+                    class="display-1 text-white mb-4 animated fadeInUp"
+                    style="
+                      font-family: 'Playfair Display', serif;
+                      letter-spacing: 2px;
+                    "
+                  >
+                    Special <span class="text-danger">Moments</span>
+                  </h1>
+                  <p
+                    class="fs-4 text-white mb-4 animated fadeInUp delay-1"
+                    style="
+                      font-family: 'Source Sans Pro', sans-serif;
+                      font-weight: 300;
+                      letter-spacing: 1px;
+                    "
+                  >
+                    Creating unforgettable memories with exquisite catering
+                  </p>
+                  <div
+                    class="border-top border-bottom border-white py-4 px-4 animated fadeInUp delay-2"
+                  >
+                    <h5
+                      class="text-white"
+                      style="
+                        font-family: 'Source Sans Pro', sans-serif;
+                        letter-spacing: 3px;
+                        font-weight: 400;
+                      "
+                    >
+                      PERFECT EXECUTION • MEMORABLE EXPERIENCE
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="carousel-item">
+          <div class="hero-header position-relative" style="height: 100vh">
+            <picture class="position-absolute w-100 h-100">
+              <source srcset="img/5.jpg" media="(min-width: 1200px)" />
+              <source srcset="img/5.jpg" media="(min-width: 768px)" />
+              <img
+                src="img/5.jpg"
+                alt="Celebration Hero Image"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  filter: brightness(0.4);
+                "
+              />
+            </picture>
+            <div
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+              "
+            ></div>
+            <div class="container h-100">
+              <div
+                class="row h-100 align-items-center justify-content-center text-center"
+              >
+                <div class="col-lg-10">
+                  <h1
+                    class="display-1 text-white mb-4 animated fadeInUp"
+                    style="
+                      font-family: 'Playfair Display', serif;
+                      letter-spacing: 2px;
+                    "
+                  >
+                    Celebrate with <span class="text-danger">Style</span>
+                  </h1>
+                  <p
+                    class="fs-4 text-white mb-4 animated fadeInUp delay-1"
+                    style="
+                      font-family: 'Source Sans Pro', sans-serif;
+                      font-weight: 300;
+                      letter-spacing: 1px;
+                    "
+                  >
+                    Where every occasion becomes an extraordinary celebration
+                  </p>
+                  <div
+                    class="border-top border-bottom border-white py-4 px-4 animated fadeInUp delay-2"
+                  >
+                    <h5
+                      class="text-white"
+                      style="
+                        font-family: 'Source Sans Pro', sans-serif;
+                        letter-spacing: 3px;
+                        font-weight: 400;
+                      "
+                    >
+                      LUXURY SERVICE • CREATIVE CUISINE • PERFECT MOMENTS
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrows -->
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide="prev"
+        style="
+          width: 40px;
+          height: 40px;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 30px;
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 50%;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+        "
+      >
+        <i
+          class="fas fa-chevron-left"
+          style="color: white; font-size: 14px"
+        ></i>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide="next"
+        style="
+          width: 40px;
+          height: 40px;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 30px;
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 50%;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+        "
+      >
+        <i
+          class="fas fa-chevron-right"
+          style="color: white; font-size: 14px"
+        ></i>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    </div>
+
+    <!-- Hero End -->
+
+    <!-- About Start -->
+    <div id="about" class="container-fluid py-5">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <!-- Left Column: Images -->
+          <div class="col-lg-6">
+            <div class="position-relative h-100" style="min-height: 400px">
+              <!-- Single centered hexagon image with responsive design -->
+              <div
+                class="d-flex align-items-center justify-content-center h-100"
+              >
+                <div
+                  class="hexagon-img-container position-relative"
+                  style="width: 100%; max-width: 400px; margin: 0 auto"
+                >
+                  <div class="ratio ratio-1x1">
+                    <img
+                      class="img-fluid w-100 h-100 object-cover position-absolute top-0 start-0"
+                      src="img/22.jpg"
+                      alt="Our Culinary Team"
+                      style="object-position: center"
+                    />
+                  </div>
+                  <div
+                    class="hexagon-border position-absolute top-0 start-0 w-100 h-100"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Text Content -->
+          <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+            <h1 class="mb-4">
+              <span class="text-uppercase text-danger bg-light px-2"
+                >Our Story</span
+              >
+              at The Great Spoon
+            </h1>
+            <h3 class="mb-4">Two Decades of Culinary Excellence</h3>
+            <p class="mb-3">
+              Taste, quality, service - these are the promises we live by at The
+              Great Spoon. For over two decades, we've been crafting culinary
+              excellence and delivering unforgettable experiences.
+            </p>
+            <p class="mb-4">
+              Each dish is a masterpiece, each event a celebration of flavors
+              and creativity. With 10,000+ successful events under our belt, we
+              bring unparalleled expertise to your special occasions.
+            </p>
+
+            <div class="row g-3">
+              <div class="col-6">
+                <h6>
+                  <i class="fa fa-check text-danger me-2"></i>Award-Winning
+                  Service
+                </h6>
+                <h6>
+                  <i class="fa fa-check text-danger me-2"></i>Professional Chefs
+                </h6>
+              </div>
+              <div class="col-6">
+                <h6>
+                  <i class="fa fa-check text-danger me-2"></i>24/7 Support
+                </h6>
+                <h6>
+                  <i class="fa fa-check text-danger me-2"></i>Custom Menus
+                </h6>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap align-items-center mt-4">
+              <a class="btn btn-danger px-4 me-3 mb-2" href="">Learn More</a>
+              <a
+                class="btn btn-outline-danger btn-square border-2 me-2 mb-2"
+                href=""
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                class="btn btn-outline-danger btn-square border-2 me-2 mb-2"
+                href=""
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a
+                class="btn btn-outline-danger btn-square border-2 me-2 mb-2"
+                href=""
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a class="btn btn-outline-danger btn-square border-2 mb-2" href=""
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- About End -->
+
+    <!-- Why Choose Us Section -->
+    <section id="features" class="why-choose-us">
+      <!-- Background Image with Overlay -->
+      <div class="bg-overlay"></div>
+      <div class="container">
+        <div class="section-title wow fadeIn" data-wow-delay="0.1s">
+          <h2 class="text-white">
+            Why Choose
+            <span class="text-uppercase text-danger bg-light px-2"
+              >The Great Spoon</span
+            >
+          </h2>
+          <p class="lead text-white-50 mx-auto" style="max-width: 700px">
+            Excellence in catering services with a legacy of creating
+            unforgettable culinary experiences
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+            <div class="feature-card">
+              <i class="fas fa-award"></i>
+              <h4>25+ Years Experience</h4>
+              <p>
+                With over two decades in the catering industry, we bring
+                unparalleled expertise to every event, ensuring flawless
+                execution and memorable experiences.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.2s">
+            <div class="feature-card">
+              <i class="fas fa-medal"></i>
+              <h4>Award-Winning Menus</h4>
+              <p>
+                Our culinary team crafts innovative, delicious menus that blend
+                traditional flavors with modern presentation, earning us
+                numerous industry accolades.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+            <div class="feature-card">
+              <i class="fas fa-user-tie"></i>
+              <h4>Expert Team</h4>
+              <p>
+                Our professional chefs and staff are trained to deliver
+                exceptional service, ensuring every detail of your event is
+                handled with precision and care.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.4s">
+            <div class="feature-card">
+              <i class="fas fa-seedling"></i>
+              <h4>Fresh Ingredients</h4>
+              <p>
+                We source only the finest, freshest ingredients from trusted
+                local suppliers, ensuring the highest quality in every dish we
+                serve.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+            <div class="feature-card">
+              <i class="fas fa-tags"></i>
+              <h4>Competitive Pricing</h4>
+              <p>
+                We offer exceptional value with transparent, competitive pricing
+                tailored to your specific event needs and budget requirements.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.6s">
+            <div class="feature-card">
+              <i class="fas fa-clock"></i>
+              <h4>Punctual Service</h4>
+              <p>
+                Our dedicated team ensures timely setup, service, and cleanup,
+                allowing you to enjoy your event without any worries.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Why Choose Us End -->
+
+    <!-- Features Grid Start -->
+    <div class="container-fluid py-5 bg-light">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Feature 1 -->
+          <div class="col-6 col-md-3 text-center p-4 feature-item">
+            <div class="feature-icon mb-3">
+              <i class="fas fa-utensils fa-3x text-danger"></i>
+            </div>
+            <h5 class="mb-2">Exquisite Menus</h5>
+            <p class="mb-0">Carefully curated dishes for every occasion</p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="col-6 col-md-3 text-center p-4 feature-item">
+            <div class="feature-icon mb-3">
+              <i class="fas fa-leaf fa-3x text-danger"></i>
+            </div>
+            <h5 class="mb-2">Fresh Ingredients</h5>
+            <p class="mb-0">Only the finest and freshest ingredients</p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="col-6 col-md-3 text-center p-4 feature-item">
+            <div class="feature-icon mb-3">
+              <i class="fas fa-user-tie fa-3x text-danger"></i>
+            </div>
+            <h5 class="mb-2">Expert Chefs</h5>
+            <p class="mb-0">Skilled culinary professionals</p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="col-6 col-md-3 text-center p-4 feature-item">
+            <div class="feature-icon mb-3">
+              <i class="fas fa-tags fa-3x text-danger"></i>
+            </div>
+            <h5 class="mb-2">Affordable Pricing</h5>
+            <p class="mb-0">Great value for exceptional quality</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Grid End -->
+
+    <!-- Events Start -->
+    <div id="events" class="container-fluid py-5 bg-white">
+      <div class="container py-5">
+        <div class="text-center mb-5 wow fadeIn" data-wow-delay="0.1s">
+          <h1 class="mb-3">
+            Our
+            <span class="text-uppercase text-danger bg-light px-2"
+              >Latest Events</span
+            >
+          </h1>
+          <p class="lead">
+            Experience our culinary excellence at these recent events
+          </p>
+        </div>
+        <div class="row g-4">
+          <!-- Event 1 -->
+          <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+            <div class="event-card h-100 overflow-hidden position-relative">
+              <div class="event-img overflow-hidden">
+                <img
+                  src="img/event1.jpg"
+                  class="img-fluid w-100"
+                  alt="Corporate Gala Dinner"
+                  onerror="this.src='img/1.jpg'"
+                  style="
+                    height: 250px;
+                    object-fit: cover;
+                    transition: transform 0.5s ease;
+                  "
+                />
+                <div class="event-date">
+                  <div class="date-day">15</div>
+                  <div class="date-month">JUL</div>
+                </div>
+              </div>
+              <div class="p-4">
+                <div class="d-flex justify-content-between mb-3">
+                  <span class="text-danger"
+                    ><i class="far fa-calendar-alt me-2"></i>15 July 2025</span
+                  >
+                  <span
+                    ><i class="fas fa-map-marker-alt me-2 text-danger"></i
+                    >Ahmedabad</span
+                  >
+                </div>
+                <h4 class="mb-3">Corporate Gala Dinner</h4>
+                <p class="mb-4">
+                  An elegant evening celebrating corporate excellence with a
+                  five-course gourmet dining experience.
+                </p>
+                <a href="#" class="btn btn-outline-danger btn-sm"
+                  >View Gallery</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 2 -->
+          <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+            <div class="event-card h-100 overflow-hidden position-relative">
+              <div class="event-img overflow-hidden">
+                <img
+                  src="img/event2.jpg"
+                  class="img-fluid w-100"
+                  alt="Wedding Celebration"
+                  onerror="this.src='img/2.jpg'"
+                  style="
+                    height: 250px;
+                    object-fit: cover;
+                    transition: transform 0.5s ease;
+                  "
+                />
+                <div class="event-date">
+                  <div class="date-day">22</div>
+                  <div class="date-month">JUL</div>
+                </div>
+              </div>
+              <div class="p-4">
+                <div class="d-flex justify-content-between mb-3">
+                  <span class="text-danger"
+                    ><i class="far fa-calendar-alt me-2"></i>22 July 2025</span
+                  >
+                  <span
+                    ><i class="fas fa-map-marker-alt me-2 text-danger"></i
+                    >Ahmedabad</span
+                  >
+                </div>
+                <h4 class="mb-3">Wedding Celebration</h4>
+                <p class="mb-4">
+                  A magical wedding reception featuring a blend of traditional
+                  and contemporary cuisine for 300+ guests.
+                </p>
+                <a href="#" class="btn btn-outline-danger btn-sm"
+                  >View Gallery</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 3 -->
+          <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+            <div class="event-card h-100 overflow-hidden position-relative">
+              <div class="event-img overflow-hidden">
+                <img
+                  src="img/event3.jpg"
+                  class="img-fluid w-100"
+                  alt="Birthday Bash"
+                  onerror="this.src='img/3.jpg'"
+                  style="
+                    height: 250px;
+                    object-fit: cover;
+                    transition: transform 0.5s ease;
+                  "
+                />
+                <div class="event-date">
+                  <div class="date-day">30</div>
+                  <div class="date-month">JUL</div>
+                </div>
+              </div>
+              <div class="p-4">
+                <div class="d-flex justify-content-between mb-3">
+                  <span class="text-danger"
+                    ><i class="far fa-calendar-alt me-2"></i>30 July 2025</span
+                  >
+                  <span
+                    ><i class="fas fa-map-marker-alt me-2 text-danger"></i
+                    >Ahmedabad</span
+                  >
+                </div>
+                <h4 class="mb-3">Birthday Bash</h4>
+                <p class="mb-4">
+                  A vibrant birthday celebration with a custom dessert bar and
+                  live cooking stations.
+                </p>
+                <a href="#" class="btn btn-outline-danger btn-sm"
+                  >View Gallery</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-5">
+          <a href="#" class="btn btn-danger px-4 py-2">View All Events</a>
+        </div>
+      </div>
+    </div>
+    <!-- Latest Events End -->
+
+    <!-- Services Start -->
+    <div id="services" class="container-fluid py-3 py-md-4 py-lg-5 bg-light">
+      <div class="container px-3 px-sm-4 px-lg-0">
+        <div class="text-center mb-4 mb-md-5 wow fadeIn" data-wow-delay="0.1s">
+          <h1 class="mb-2">
+            Our
+            <span class="text-uppercase text-danger bg-light px-2">Services</span>
+          </h1>
+          <p class="lead mb-3 mb-md-4">
+            Exceptional catering services for every occasion
+          </p>
+
+          <!-- Filter Buttons -->
+          <div class="filter-container mb-4">
+            <div class="d-flex flex-wrap justify-content-center gap-2 px-2">
+              <button
+                type="button"
+                class="btn btn-outline-danger px-3 px-sm-4 py-2 py-sm-1 filter-btn active"
+                data-filter="all"
+              >
+                All
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-danger px-3 px-sm-4 py-2 py-sm-1 filter-btn"
+                data-filter="wedding"
+              >
+                Weddings
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-danger px-3 px-sm-4 py-2 py-sm-1 filter-btn"
+                data-filter="corporate"
+              >
+                Corporate
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-danger px-3 px-sm-4 py-2 py-sm-1 filter-btn"
+                data-filter="social"
+              >
+                Social
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-danger px-3 px-sm-4 py-2 py-sm-1 filter-btn"
+                data-filter="private"
+              >
+                Private
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center g-3 g-md-4 service-container px-2 px-md-0">
+          <!-- Service 1 - Wedding -->
+          <div
+            class="col-12 col-sm-10 col-md-6 col-lg-4 col-xl-4 service-item wedding"
+            data-category="wedding"
+          >
+            <div
+              class="card h-100 border-0 shadow-sm overflow-hidden service-card transition-all"
+            >
+              <div
+                class="position-relative overflow-hidden"
+                style="height: 200px; min-height: 200px;"
+              >
+                <img
+                  src="img/5.jpg"
+                  class="card-img-top h-100 w-100 object-cover"
+                  alt="Wedding Catering"
+                />
+                <div
+                  class="service-badge bg-danger text-white px-3 py-1 rounded-pill small fw-medium position-absolute top-2 start-2"
+                  style="z-index: 2;"
+                >
+                  Wedding
+                </div>
+                <div class="card-img-overlay d-flex align-items-end p-0">
+                  <div class="gradient-overlay w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%);"></div>
+                </div>
+              </div>
+              <div class="card-body p-3 p-sm-4">
+                <h3 class="h5 fw-bold mb-2 mb-md-3">Wedding Catering</h3>
+                <p class="card-text text-muted mb-3 mb-md-4 small">
+                  Exquisite dining experiences for your special day, tailored to
+                  your theme and preferences with our expert culinary team.
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center border-top pt-3"
+                >
+                  <a
+                    href="#"
+                    class="btn btn-link text-danger text-decoration-none fw-medium p-0"
+                  >
+                    View Details <i class="fas fa-arrow-right ms-2 small"></i>
+                  </a>
+                  <a href="#" class="btn btn-danger btn-sm px-3 px-md-4 py-2 rounded-1">
+                    Enquire Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 2 - Corporate -->
+          <div
+            class="col-12 col-sm-10 col-md-6 col-lg-4 col-xl-4 service-item corporate"
+            data-category="corporate"
+          >
+            <div
+              class="card h-100 border-0 shadow-sm overflow-hidden service-card transition-all"
+            >
+              <div
+                class="position-relative overflow-hidden"
+                style="height: 200px; min-height: 200px;"
+              >
+                <img
+                  src="img/5.jpg"
+                  class="card-img-top h-100 w-100 object-cover"
+                  alt="Corporate Events"
+                />
+                <div
+                  class="service-badge bg-danger text-white px-3 py-1 rounded-pill small fw-medium position-absolute top-2 start-2"
+                  style="z-index: 2;"
+                >
+                  Corporate
+                </div>
+                <div class="card-img-overlay d-flex align-items-end p-0">
+                  <div class="gradient-overlay w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%);"></div>
+                </div>
+              </div>
+              <div class="card-body p-3 p-sm-4">
+                <h3 class="h5 fw-bold mb-2 mb-md-3">Corporate Events</h3>
+                <p class="card-text text-muted mb-3 mb-md-4 small">
+                  Professional catering services for meetings, conferences, and
+                  corporate gatherings that impress your clients and team.
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center border-top pt-3"
+                >
+                  <a
+                    href="#"
+                    class="btn btn-link text-danger text-decoration-none fw-medium p-0"
+                  >
+                    View Details <i class="fas fa-arrow-right ms-2 small"></i>
+                  </a>
+                  <a href="#" class="btn btn-danger btn-sm px-3 px-md-4 py-2 rounded-1">
+                    Enquire Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 3 - Social -->
+          <div
+            class="col-12 col-sm-10 col-md-6 col-lg-4 col-xl-4 service-item social"
+            data-category="social"
+          >
+            <div
+              class="card h-100 border-0 shadow-sm overflow-hidden service-card transition-all"
+            >
+              <div
+                class="position-relative overflow-hidden"
+                style="height: 200px; min-height: 200px;"
+              >
+                <img
+                  src="img/5.jpg"
+                  class="card-img-top h-100 w-100 object-cover"
+                  alt="Social Gatherings"
+                />
+                <div
+                  class="service-badge bg-danger text-white px-3 py-1 rounded-pill small fw-medium position-absolute top-2 start-2"
+                  style="z-index: 2;"
+                >
+                  Social
+                </div>
+                <div class="card-img-overlay d-flex align-items-end p-0">
+                  <div class="gradient-overlay w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%);"></div>
+                </div>
+              </div>
+              <div class="card-body p-3 p-sm-4">
+                <h3 class="h5 fw-bold mb-2 mb-md-3">Social Gatherings</h3>
+                <p class="card-text text-muted mb-3 mb-md-4 small">
+                  From birthday parties to anniversaries, we create memorable
+                  dining experiences that make your celebrations special.
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center border-top pt-3"
+                >
+                  <a
+                    href="#"
+                    class="btn btn-link text-danger text-decoration-none fw-medium p-0"
+                  >
+                    View Details <i class="fas fa-arrow-right ms-2 small"></i>
+                  </a>
+                  <a href="#" class="btn btn-danger btn-sm px-3 px-md-4 py-2 rounded-1">
+                    Enquire Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 4 - Private -->
+          <div
+            class="col-12 col-sm-10 col-md-6 col-lg-4 col-xl-4 service-item private"
+            data-category="private"
+          >
+            <div
+              class="card h-100 border-0 shadow-sm overflow-hidden service-card transition-all"
+            >
+              <div
+                class="position-relative overflow-hidden"
+                style="height: 200px; min-height: 200px;"
+              >
+                <img
+                  src="img/5.jpg"
+                  class="card-img-top h-100 w-100 object-cover"
+                  alt="Private Dinners"
+                />
+                <div
+                  class="service-badge bg-danger text-white px-3 py-1 rounded-pill small fw-medium position-absolute top-2 start-2"
+                  style="z-index: 2;"
+                >
+                  Private
+                </div>
+                <div class="card-img-overlay d-flex align-items-end p-0">
+                  <div class="gradient-overlay w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%);"></div>
+                </div>
+              </div>
+              <div class="card-body p-3 p-sm-4">
+                <h3 class="h5 fw-bold mb-2 mb-md-3">Private Dinners</h3>
+                <p class="card-text text-muted mb-3 mb-md-4 small">
+                  Intimate dining experiences in the comfort of your home,
+                  featuring personalized menus and professional service.
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center border-top pt-3"
+                >
+                  <a
+                    href="#"
+                    class="btn btn-link text-danger text-decoration-none fw-medium p-0"
+                  >
+                    View Details <i class="fas fa-arrow-right ms-2 small"></i>
+                  </a>
+                  <a href="#" class="btn btn-danger btn-sm px-3 px-md-4 py-2 rounded-1">
+                    Enquire Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 5 - Cocktail -->
+          <div
+            class="col-12 col-sm-10 col-md-6 col-lg-4 col-xl-4 service-item social"
+            data-category="social"
+          >
+            <div
+              class="card h-100 border-0 shadow-sm overflow-hidden service-card transition-all"
+            >
+              <div
+                class="position-relative overflow-hidden"
+                style="height: 200px; min-height: 200px;"
+              >
+                <img
+                  src="img/5.jpg"
+                  class="card-img-top h-100 w-100 object-cover"
+                  alt="Cocktail Parties"
+                />
+                <div
+                  class="service-badge bg-danger text-white px-3 py-1 rounded-pill small fw-medium position-absolute top-2 start-2"
+                  style="z-index: 2;"
+                >
+                  Cocktail
+                </div>
+                <div class="card-img-overlay d-flex align-items-end p-0">
+                  <div class="gradient-overlay w-100" style="background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%);"></div>
+                </div>
+              </div>
+              <div class="card-body p-3 p-sm-4">
+                <h3 class="h5 fw-bold mb-2 mb-md-3">Cocktail Parties</h3>
+                <p class="card-text text-muted mb-3 mb-md-4 small">
+                  Sophisticated cocktail receptions with gourmet hors d'oeuvres
+                  and premium beverage service for your elegant events.
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center border-top pt-3"
+                >
+                  <a
+                    href="#"
+                    class="btn btn-link text-danger text-decoration-none fw-medium p-0"
+                  >
+                    View Details <i class="fas fa-arrow-right ms-2 small"></i>
+                  </a>
+                  <a href="#" class="btn btn-danger btn-sm px-3 px-md-4 py-2 rounded-1">
+                    Enquire Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 6 - Gourmet -->
+          <div
+            class="col-md-6 col-lg-4 mb-4 service-item corporate"
+            data-category="corporate"
+          >
+            <div
+              class="card h-100 border-0 shadow-sm overflow-hidden service-card"
+            >
+              <div class="position-relative">
+                <img
+                  src="img/5.jpg"
+                  class="card-img-top"
+                  alt="Gourmet Catering"
+                />
+                <div class="service-badge">Gourmet</div>
+              </div>
+              <div class="card-body p-3 p-sm-4">
+                <h3 class="h5 mb-2">Gourmet Catering</h3>
+                <p class="card-text text-muted small mb-3">
+                  Premium dining experiences featuring the finest ingredients,
+                  artistic presentation, and exceptional service.
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center border-top pt-3"
+                >
+                  <a
+                    href="#"
+                    class="btn btn-link text-danger text-decoration-none fw-medium p-0"
+                  >
+                    View Details <i class="fas fa-arrow-right ms-2 small"></i>
+                  </a>
+                  <a href="#" class="btn btn-danger btn-sm px-3 px-md-4 py-2 rounded-1">
+                    Enquire Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <a href="#" class="btn btn-danger btn-lg px-4 px-md-5 mt-3 mt-md-4">View All Services</a>
+        </div>
+      </div>
+    </div>
+    <!-- Services End -->
+    
+    <!-- Add this CSS for better mobile experience -->
+    <style>
+      @media (max-width: 767.98px) {
+        #services .service-item {
+          padding-bottom: 1rem;
+        }
+        #services .card {
+          height: 100%;
+          transition: transform 0.3s ease;
+        }
+        #services .card:hover {
+          transform: translateY(-5px);
+        }
+        #services .filter-container .btn {
+          margin-bottom: 0.5rem;
+          font-size: 0.85rem;
+        }
+      }
+      
+      @media (max-width: 575.98px) {
+        #services .btn {
+          padding: 0.5rem 1rem;
+        }
+        #services .card-body {
+          padding: 1.25rem;
+        }
+      }
+    </style>
+
+    <!-- Team Start -->
+    <div
+      class="container-fluid py-5 position-relative"
+      style="background: url('img/25.jpg') center/cover no-repeat fixed"
+    >
+      <div
+        class="position-absolute top-0 start-0 w-100 h-100"
+        style="background: rgba(0, 0, 0, 0.03); pointer-events: none"
+      ></div>
+      <div class="container py-5">
+        <div class="text-center mb-5 wow fadeIn" data-wow-delay="0.1s">
+          <h1 class="mb-3 text-white">
+            Our Expert
+            <span class="text-uppercase text-danger bg-light px-2">Team</span>
+          </h1>
+          <p class="lead text-white">
+            Meet our talented culinary professionals
+          </p>
+        </div>
+        <div class="row g-4 justify-content-center">
+          <div
+            class="col-sm-6 col-md-4 col-lg-3 wow fadeIn"
+            data-wow-delay="0.2s"
+          >
+            <div class="team-card text-center p-4">
+              <div class="team-img-container mx-auto mb-4">
+                <img
+                  src="img/team-1.jpg"
+                  alt="Chef Anil"
+                  class="img-fluid team-img"
+                />
+              </div>
+              <h4 class="mb-1">Chef Anil</h4>
+              <p class="text-danger mb-0">Head Chef</p>
+            </div>
+          </div>
+          <div
+            class="col-sm-6 col-md-4 col-lg-3 wow fadeIn"
+            data-wow-delay="0.4s"
+          >
+            <div class="team-card text-center p-4">
+              <div class="team-img-container mx-auto mb-4">
+                <img
+                  src="img/team-2.jpg"
+                  alt="Chef Priya"
+                  class="img-fluid team-img"
+                />
+              </div>
+              <h4 class="mb-1">Chef Priya</h4>
+              <p class="text-danger mb-0">Pastry Chef</p>
+            </div>
+          </div>
+          <div
+            class="col-sm-6 col-md-4 col-lg-3 wow fadeIn"
+            data-wow-delay="0.6s"
+          >
+            <div class="team-card text-center p-4">
+              <div class="team-img-container mx-auto mb-4">
+                <img
+                  src="img/team-3.jpg"
+                  alt="Chef Rohan"
+                  class="img-fluid team-img"
+                />
+              </div>
+              <h4 class="mb-1">Chef Rohan</h4>
+              <p class="text-danger mb-0">Sous Chef</p>
+            </div>
+          </div>
+          <div
+            class="col-sm-6 col-md-4 col-lg-3 wow fadeIn"
+            data-wow-delay="0.8s"
+          >
+            <div class="team-card text-center p-4">
+              <div class="team-img-container mx-auto mb-4">
+                <img
+                  src="img/team-4.jpg"
+                  alt="Chef Meera"
+                  class="img-fluid team-img"
+                />
+              </div>
+              <h4 class="mb-1">Chef Meera</h4>
+              <p class="text-danger mb-0">Event Planner</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Team End -->
+
+    <!-- Map Section -->
+    <section class="map-section py-5 bg-light" aria-labelledby="map-heading">
+      <div class="container">
+        <header class="text-center mb-5">
+          <h2 id="map-heading" class="display-5 fw-bold mb-3">
+            Find
+            <span
+              class="text-uppercase text-danger bg-light px-2 position-relative"
+            >
+              Us Here
+            </span>
+          </h2>
+        </header>
+
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <div class="ratio ratio-16x9 shadow-sm rounded-3 overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m0!4v1722413363344!6m8!1m7!1sCAoSLEFGMVFpcE0wblFQWXBrVjZPM3hwbldjV29EbmFMaEJwSFRlZzkwT0Q4ckRk!2m2!1d23.0105824!2d72.5031278!3f0!4f0!5f0.7820865974627469"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Our Location on Google Maps"
+                aria-label="Interactive map showing our business location"
+                class="w-100 h-100"
+              >
+                <p>
+                  Your browser does not support iframes. You can view our
+                  location on
+                  <a
+                    href="https://www.google.com/maps/place//@23.0105824,72.5031278,17z/data=!4m5!3m4!1s0x0:0x0!8m2!3d23.0105824!4d72.5031278"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Google Maps </a
+                  >.
+                </p>
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial Start -->
+    <div id="testimonials" class="container-xxl py-5">
+      <div class="container py-5">
+        <div class="row justify-content-center">
+          <div class="col-md-12 col-lg-9">
+            <div
+              class="owl-carousel testimonial-carousel wow fadeIn"
+              data-wow-delay="0.2s"
+            >
+              <!-- Testimonial Item 1 -->
+              <div class="testimonial-item">
+                <div class="row g-5 align-items-center">
+                  <div class="col-md-6">
+                    <div class="testimonial-img">
+                      <img
+                        class="img-fluid"
+                        style="box-shadow: none"
+                        src="img/testimonial-1.jpg"
+                        alt="Client Anil"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="testimonial-text pb-5 pb-md-0">
+                      <h3>Exquisite Flavors</h3>
+                      <p>
+                        Aliqu diam amet diam et eos labore. Clita erat ipsum et
+                        lorem et sit, sed stet no labore lorem sit. Sanctus
+                        clita duo justo et tempor eirmod magna dolore erat amet
+                      </p>
+                      <h5 class="mb-0">Client Anil</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testimonial Item 2 -->
+              <div class="testimonial-item">
+                <div class="row g-5 align-items-center">
+                  <div class="col-md-6">
+                    <div class="testimonial-img">
+                      <img
+                        class="img-fluid"
+                        style="box-shadow: none"
+                        src="img/testimonial-2.jpg"
+                        alt="Client Priya"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="testimonial-text pb-5 pb-md-0">
+                      <h3>Perfect Event</h3>
+                      <p>
+                        Clita erat ipsum et lorem et sit, sed stet no labore
+                        lorem sit. Sanctus clita duo justo et tempor eirmod
+                        magna dolore erat amet
+                      </p>
+                      <h5 class="mb-0">Client Priya</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testimonial Item 3 -->
+              <div class="testimonial-item">
+                <div class="row g-5 align-items-center">
+                  <div class="col-md-6">
+                    <div class="testimonial-img">
+                      <img
+                        class="img-fluid"
+                        style="box-shadow: none"
+                        src="img/testimonial-3.jpg"
+                        alt="Client Rohan"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="testimonial-text pb-5 pb-md-0">
+                      <h3>Great Value</h3>
+                      <p>
+                        Diam amet diam et eos labore. Clita erat ipsum et lorem
+                        et sit, sed stet no labore lorem sit. Sanctus clita duo
+                        justo et tempor eirmod magna dolore erat amet
+                      </p>
+                      <h5 class="mb-0">Client Rohan</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Testimonial End -->
+
+    <!-- Contact & Footer Start -->
+    <div id="contact" class="container-fluid bg-dark text-white-50 footer pt-5" style="background-color: #000000 !important">
+      <div class="container py-5">
+        <div class="row g-5">
+          <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+            <a href="index.html" class="d-inline-block mb-3">
+              <img
+                src="img/tgs-footer.png"
+                alt="TGS"
+                class="img-fluid"
+                style="width: 120px; height: 60px"
+              />
+            </a>
+            <p class="mb-0">
+              TGS Caterers - Your trusted partner for exceptional catering
+              services. We specialize in creating memorable culinary experiences
+              for weddings, corporate events, and special occasions with our
+              commitment to quality and excellence.
+            </p>
+          </div>
+          <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+            <h5 class="text-white mb-4">Get In Touch</h5>
+            <p>
+              <i class="fa fa-map-marker-alt me-3"></i>123 Catering Street,
+              Mumbai, India
+            </p>
+            <p><i class="fa fa-phone-alt me-3"></i>+91 98765 43210</p>
+            <p><i class="fa fa-envelope me-3"></i>info@tgscaterers.com</p>
+            <div class="d-flex pt-2">
+              <a
+                class="btn btn-outline-primary btn-square border-2 me-2"
+                href=""
+                style="
+                  border-color: var(--bs-primary);
+                  color: var(--bs-primary);
+                "
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a
+                class="btn btn-outline-primary btn-square border-2 me-2"
+                href=""
+                style="
+                  border-color: var(--bs-primary);
+                  color: var(--bs-primary);
+                "
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                class="btn btn-outline-primary btn-square border-2 me-2"
+                href=""
+                style="
+                  border-color: var(--bs-primary);
+                  color: var(--bs-primary);
+                "
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a
+                class="btn btn-outline-primary btn-square border-2 me-2"
+                href=""
+                style="
+                  border-color: var(--bs-primary);
+                  color: var(--bs-primary);
+                "
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a class="btn btn-outline-primary btn-square border-2 mb-2" href=""
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+            <h5 class="text-white mb-4">Quick Links</h5>
+            <a class="btn btn-link" href="">About Us</a>
+            <a class="btn btn-link" href="">Contact Us</a>
+            <a class="btn btn-link" href="">Privacy Policy</a>
+            <a class="btn btn-link" href="">Terms & Condition</a>
+            <a class="btn btn-link" href="">Careers</a>
+          </div>
+          <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+            <h5 class="text-white mb-4">Our Services</h5>
+            <a class="btn btn-link" href="">Wedding Catering</a>
+            <a class="btn btn-link" href="">Corporate Events</a>
+            <a class="btn btn-link" href="">Private Parties</a>
+            <a class="btn btn-link" href="">Special Occasions</a>
+            <a class="btn btn-link" href="">Menu Planning</a>
+          </div>
+        </div>
+      </div>
+      <div class="container wow fadeIn" data-wow-delay="0.1s">
+        <div class="copyright">
+          <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+              &copy; <a class="border-bottom" href="#">TGS Caterers</a>, All
+              Right Reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <div class="footer-menu">
+                <a href="">Home</a>
+                <a href="">Services</a>
+                <a href="">Gallery</a>
+                <a href="">Contact</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-danger btn-lg-square back-to-top"
+      ><i class="bi bi-arrow-up"></i
+    ></a>
+
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/YOUR_WHATSAPP_NUMBER"
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <style>
+      /* Why Choose Us Section Styling */
+      .why-choose-us {
+        position: relative;
+        padding: 5rem 0;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      
+      .bg-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+      }
+      
+      .why-choose-us .container {
+        position: relative;
+        z-index: 2;
+      }
+      
+      .feature-card {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 2rem 1.5rem;
+        height: 100%;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+      }
+      
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+      
+      .feature-card i {
+        font-size: 2.5rem;
+        color: #dc3545;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+      }
+      
+      .feature-card h4 {
+        color: #343a40;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+      }
+      
+      .feature-card p {
+        color: #6c757d;
+        margin-bottom: 0;
+        line-height: 1.6;
+      }
+      
+      /* Service Cards Styling */
+      .service-card {
+        transition: all 0.3s ease;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important;
+      }
+
+      .service-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 2;
+        font-size: 0.7rem;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        padding: 0.25rem 0.75rem !important;
+        background-color: #dc3545 !important;
+        border-radius: 50px !important;
+      }
+
+      .gradient-overlay {
+        height: 50%;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+      }
+
+      .card-img-top {
+        transition: transform 0.5s ease;
+        object-fit: cover;
+      }
+
+      .service-card:hover .card-img-top {
+        transform: scale(1.05);
+      }
+
+      .filter-container {
+        margin: 0 auto;
+        max-width: 800px;
+      }
+
+      .filter-btn {
+        transition: all 0.2s ease;
+        border-radius: 50px;
+        font-weight: 500;
+        font-size: 0.85rem;
+        margin: 0.15rem;
+        border-width: 1.5px;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background-color: #dc3545 !important;
+        color: white !important;
+        border-color: #dc3545 !important;
+        transform: translateY(-1px);
+      }
+
+      .service-container .card-body {
+        padding: 1.5rem;
+        background: white;
+      }
+
+      .service-container h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .service-container .card-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1.25rem;
+        color: #6c757d !important;
+      }
+
+      @media (max-width: 767.98px) {
+        .service-container .card-body {
+          padding: 1.25rem;
+        }
+
+        .filter-btn {
+          padding: 0.25rem 0.75rem !important;
+          font-size: 0.8rem;
+        }
+
+        .service-card {
+          max-width: 100%;
+        }
+      }
+
+      @media (min-width: 768px) and (max-width: 1199.98px) {
+        .service-card {
+          max-width: 450px;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .service-card {
+          max-width: 400px;
+        }
+      }
+
+      .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        left: 40px;
+        background-color: #25d366;
+        color: #fff;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease-in-out;
+        animation: pulse 2s infinite;
+      }
+
+      .whatsapp-float:hover {
+        background-color: #128c7e;
+        transform: scale(1.1);
+        text-decoration: none;
+        color: #fff;
+      }
+
+      /* About Section Image Styling */
+      .hexagon-img-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(
+          50% 0%,
+          100% 25%,
+          100% 75%,
+          50% 100%,
+          0% 75%,
+          0% 25%
+        );
+        transition: all 0.5s ease;
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+      }
+
+      .hexagon-border {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, #ff4d4d, #ff9a9e);
+        clip-path: polygon(
+          50% 0%,
+          100% 25%,
+          100% 75%,
+          50% 100%,
+          0% 75%,
+          0% 25%
+        );
+        z-index: -1;
+        transform: scale(1.02);
+        transition: all 0.5s ease;
+      }
+
+      .hexagon-img-container:hover {
+        transform: translateY(-10px) rotate(5deg);
+      }
+
+      .hexagon-img-container:hover .hexagon-border {
+        transform: scale(1.05);
+        background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+      }
+
+      .circle-img-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: all 0.5s ease;
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+        border: 8px solid transparent;
+        background: linear-gradient(45deg, #ff4d4d, #ff9a9e) border-box;
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: destination-out;
+        mask-composite: exclude;
+      }
+
+      .circle-border {
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        right: -8px;
+        bottom: -8px;
+        background: linear-gradient(45deg, #ff4d4d, #ff9a9e);
+        border-radius: 50%;
+        z-index: -1;
+        transition: all 0.5s ease;
+        animation: rotate 15s linear infinite;
+      }
+
+      .circle-img-container:hover {
+        transform: translateY(-10px) scale(1.05);
+      }
+
+      .circle-img-container:hover .circle-border {
+        background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+        animation: rotate 10s linear infinite;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .whatsapp-float {
+          width: 50px;
+          height: 50px;
+          font-size: 25px;
+          bottom: 20px;
+          left: 15px;
+        }
+      }
+    </style>
+
+    <style>
+      /* Team Section Styling */
+      .team-card {
+        transition: all 0.3s ease;
+        height: 100%;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .team-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+      }
+
+      .team-img-container {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        border: 5px solid #f8f9fa;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      }
+
+      .team-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .team-card:hover .team-img {
+        transform: scale(1.1);
+      }
+
+      .btn-social {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 50% !important;
+        transition: all 0.3s ease;
+      }
+
+      .btn-social:hover {
+        background: #dc3545;
+        color: #fff !important;
+        transform: translateY(-3px);
+      }
+
+      @media (max-width: 991.98px) {
+        .team-img-container {
+          width: 180px;
+          height: 180px;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .team-img-container {
+          width: 160px;
+          height: 160px;
+        }
+
+        .team-card {
+          margin-bottom: 20px;
+        }
+      }
+
+      @media (max-width: 575.98px) {
+        .team-img-container {
+          width: 140px;
+          height: 140px;
+        }
+      }
+    </style>
+
+    <!-- Enquiry Modal Styles -->
+    <style>
+      /* Modal Container */
+      #enquiryModal .modal-dialog {
+        max-width: 600px;
+        margin: 1.75rem auto;
+      }
+      
+      /* Modal Header */
+      #enquiryModal .modal-header {
+        padding: 1.5rem 2rem;
+        border-radius: 0.3rem 0.3rem 0 0;
+      }
+      
+      #enquiryModal .modal-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin: 0;
+      }
+      
+      /* Modal Body */
+      #enquiryModal .modal-body {
+        padding: 2rem;
+      }
+      
+      /* Form Elements */
+      #enquiryForm .form-label {
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        color: #333;
+      }
+      
+      #enquiryForm .form-control,
+      #enquiryForm .form-select {
+        padding: 0.75rem 1rem;
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+      }
+      
+      #enquiryForm .form-control:focus,
+      #enquiryForm .form-select:focus {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+      }
+      
+      #enquiryForm textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+      
+      /* Submit Button */
+      #enquiryForm .btn-submit {
+        padding: 0.8rem 2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+      }
+      
+      #enquiryForm .btn-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+      }
+      
+      /* Responsive Adjustments */
+      @media (max-width: 767.98px) {
+        #enquiryModal .modal-dialog {
+          margin: 0.5rem;
+          max-width: calc(100% - 1rem);
+        }
+        
+        #enquiryModal .modal-header {
+          padding: 1.25rem 1.5rem;
+        }
+        
+        #enquiryModal .modal-body {
+          padding: 1.5rem;
+        }
+        
+        #enquiryForm .btn-submit {
+          width: 100%;
+        }
+      }
+      
+      @media (max-width: 575.98px) {
+        #enquiryModal .modal-title {
+          font-size: 1.25rem;
+        }
+        
+        #enquiryForm .form-control,
+        #enquiryForm .form-select {
+          font-size: 0.9375rem;
+        }
+      }
+    </style>
+    
+    <!-- Enquiry Modal -->
+    <div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0 shadow">
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title" id="enquiryModalLabel">
+              <i class="fas fa-utensils me-2"></i>
+              Enquire About Our Services
+            </h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-0">
+            <div class="p-4">
+              <p class="text-muted mb-4">Fill out the form below and our team will get back to you within 24 hours to discuss your event requirements.</p>
+              <form id="enquiryForm">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="name" class="form-label">Full Name <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fas fa-user text-danger"></i></span>
+                      <input type="text" class="form-control" id="name" placeholder="John Doe" required>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fas fa-envelope text-danger"></i></span>
+                      <input type="email" class="form-control" id="email" placeholder="your@email.com" required>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label for="phone" class="form-label">Phone Number <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fas fa-phone-alt text-danger"></i></span>
+                      <input type="tel" class="form-control" id="phone" placeholder="+91 98765 43210" required>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label for="eventType" class="form-label">Event Type <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fas fa-calendar-alt text-danger"></i></span>
+                      <select class="form-select" id="eventType" required>
+                        <option value="" selected disabled>Select Event Type</option>
+                        <option value="wedding">Wedding</option>
+                        <option value="corporate">Corporate Event</option>
+                        <option value="birthday">Birthday Party</option>
+                        <option value="anniversary">Anniversary</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                  <div class="col-12">
+                    <label for="eventDate" class="form-label">Event Date</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="far fa-calendar-alt text-danger"></i></span>
+                      <input type="date" class="form-control" id="eventDate">
+                    </div>
+                  </div>
+                  
+                  <div class="col-12">
+                    <label for="message" class="form-label">Your Message</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light align-items-start pt-2"><i class="fas fa-comment-dots text-danger"></i></span>
+                      <textarea class="form-control" id="message" rows="3" placeholder="Tell us about your event..."></textarea>
+                    </div>
+                  </div>
+                  
+                  <div class="col-12 mt-4">
+                    <button type="submit" class="btn btn-danger btn-lg w-100 py-2 btn-submit">
+                      <i class="fas fa-paper-plane me-2"></i>Send Enquiry
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            
+            <div class="bg-light p-3 border-top text-center">
+              <p class="mb-0 small text-muted">
+                <i class="fas fa-lock me-2 text-danger"></i>
+                Your information is secure and will never be shared with third parties.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Isotope Filtering -->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+
+    <!-- Splash Screen JavaScript -->
+    <script src="js/splash.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      // Show modal after 5 sections or 30 seconds, whichever comes first
+      document.addEventListener('DOMContentLoaded', function() {
+        // Function to show the modal
+        function showEnquiryModal() {
+          const enquiryModal = new bootstrap.Modal(document.getElementById('enquiryModal'));
+          enquiryModal.show();
+          
+          // Don't show again for 7 days if user closes it
+          document.querySelector('#enquiryModal .btn-close').addEventListener('click', function() {
+            localStorage.setItem('enquiryModalClosed', new Date().getTime());
+          });
+          
+          // Handle form submission
+          document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Thank you for your enquiry! We will get back to you soon.');
+            const modal = bootstrap.Modal.getInstance(document.getElementById('enquiryModal'));
+            modal.hide();
+            // Don't show again for 7 days after submission
+            localStorage.setItem('enquiryModalClosed', new Date().getTime());
+          });
+        }
+
+        // Check if modal was closed in the last 7 days
+        const lastClosed = localStorage.getItem('enquiryModalClosed');
+        const oneWeek = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
+        
+        if (!lastClosed || (new Date().getTime() - lastClosed) > oneWeek) {
+          // Show modal after 30 seconds or after scrolling past 5 sections
+          const timer = setTimeout(showEnquiryModal, 30000);
+          
+          // Show modal after scrolling past 5 sections
+          window.addEventListener('scroll', function checkScroll() {
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const pageHeight = document.documentElement.scrollHeight;
+            const scrollPercentage = (scrollPosition / pageHeight) * 100;
+            
+            if (scrollPercentage > 60) { // After about 5 sections
+              clearTimeout(timer);
+              showEnquiryModal();
+              window.removeEventListener('scroll', checkScroll);
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
