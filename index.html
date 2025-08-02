@@ -1489,6 +1489,23 @@
           </p>
         </div>
         <div class="row g-4 justify-content-center">
+          <!-- Founder -->
+          <div
+            class="col-sm-6 col-md-4 col-lg-3 wow fadeIn"
+            data-wow-delay="0.2s"
+          >
+            <div class="team-card text-center p-4">
+              <div class="team-img-container mx-auto mb-4">
+                <img
+                  src="img/Founder.jpg"
+                  alt="Sachin Yadav"
+                  class="img-fluid team-img"
+                />
+              </div>
+              <h4 class="mb-1">Sachin Yadav</h4>
+              <p class="text-danger mb-0">Founder and CEO</p>
+            </div>
+          </div>
           <div
             class="col-sm-6 col-md-4 col-lg-3 wow fadeIn"
             data-wow-delay="0.2s"
@@ -1541,17 +1558,6 @@
             class="col-sm-6 col-md-4 col-lg-3 wow fadeIn"
             data-wow-delay="0.8s"
           >
-            <div class="team-card text-center p-4">
-              <div class="team-img-container mx-auto mb-4">
-                <img
-                  src="img/team-4.jpg"
-                  alt="Chef Meera"
-                  class="img-fluid team-img"
-                />
-              </div>
-              <h4 class="mb-1">Chef Meera</h4>
-              <p class="text-danger mb-0">Event Planner</p>
-            </div>
           </div>
         </div>
       </div>
@@ -1559,50 +1565,73 @@
     <!-- Team End -->
 
     <!-- Map Section -->
-    <section class="map-section py-5 bg-light" aria-labelledby="map-heading">
-      <div class="container">
+    <section class="map-section py-5 bg-light position-relative" aria-labelledby="map-heading">
+      <div class="container position-relative z-index-1">
         <header class="text-center mb-5">
           <h2 id="map-heading" class="display-5 fw-bold mb-3">
             Find
-            <span
-              class="text-uppercase text-danger bg-light px-2 position-relative"
-            >
-              Us Here
+            <span class="text-uppercase text-danger bg-light px-2 position-relative d-inline-block">
+              <span class="position-relative z-index-1">Us Here</span>
+              <span class="position-absolute top-50 start-0 w-100 h-100 bg-light z-index-0" style="transform: skewX(-15deg) translateY(-50%);"></span>
             </span>
           </h2>
+          <p class="lead text-muted mb-0">Visit us at our convenient location</p>
         </header>
 
         <div class="row justify-content-center">
-          <div class="col-12 col-lg-10">
-            <div class="ratio ratio-16x9 shadow-sm rounded-3 overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m0!4v1722413363344!6m8!1m7!1sCAoSLEFGMVFpcE0wblFQWXBrVjZPM3hwbldjV29EbmFMaEJwSFRlZzkwT0Q4ckRk!2m2!1d23.0105824!2d72.5031278!3f0!4f0!5f0.7820865974627469"
-                width="600"
-                height="450"
-                style="border: 0"
-                allowfullscreen
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Our Location on Google Maps"
-                aria-label="Interactive map showing our business location"
-                class="w-100 h-100"
-              >
-                <p>
-                  Your browser does not support iframes. You can view our
-                  location on
-                  <a
-                    href="https://www.google.com/maps/place//@23.0105824,72.5031278,17z/data=!4m5!3m4!1s0x0:0x0!8m2!3d23.0105824!4d72.5031278"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Google Maps </a
-                  >.
-                </p>
-              </iframe>
+          <div class="col-12 col-lg-10 col-xl-9">
+            <div class="map-container position-relative shadow-lg rounded-3 overflow-hidden">
+              <div class="ratio ratio-21x9">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m0!4v1722413363344!6m8!1m7!1sCAoSLEFGMVFpcE0wblFQWXBrVjZPM3hwbldjV29EbmFMaEJwSFRlZzkwT0Q4ckRk!2m2!1d23.0105824!2d72.5031278!3f0!4f0!5f0.7820865974627469"
+                  width="800"
+                  height="600"
+                  style="border: 0"
+                  allowfullscreen
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Our Location on Google Maps"
+                  aria-label="Interactive map showing The Great Spoon's business location at 23.0106° N, 72.5031° E"
+                  class="w-100 h-100"
+                ></iframe>
+              </div>
+              <div class="map-overlay d-flex align-items-center justify-content-center">
+                <a href="https://www.google.com/maps/dir//23.0105824,72.5031278/@23.010582,72.503128,17z?entry=ttu" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="btn btn-danger btn-lg shadow-sm d-flex align-items-center">
+                  <i class="fas fa-directions me-2"></i>
+                  Get Directions
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <style>
+        .map-container {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .map-container:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+        }
+        .map-overlay {
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          z-index: 10;
+        }
+        @media (max-width: 768px) {
+          .map-overlay {
+            position: relative;
+            top: 0;
+            right: 0;
+            margin-top: 1rem;
+            justify-content: center !important;
+          }
+        }
+      </style>
     </section>
 
     <!-- Testimonial Start -->
@@ -1621,21 +1650,28 @@
                     <div class="testimonial-img">
                       <img
                         class="img-fluid"
-                        style="box-shadow: none"
-                        src="img/testimonial-1.jpg"
-                        alt="Client Anil"
+                        style="box-shadow: none; border-radius: 10px;"
+                        src="img/Testimonials_1.jpg"
+                        alt="Mrs. Mehta"
                       />
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="testimonial-text pb-5 pb-md-0">
-                      <h3>Exquisite Flavors</h3>
+                      <h3>Authentic Taste, Every Time</h3>
                       <p>
-                        Aliqu diam amet diam et eos labore. Clita erat ipsum et
-                        lorem et sit, sed stet no labore lorem sit. Sanctus
-                        clita duo justo et tempor eirmod magna dolore erat amet
+                        The flavors took me right back to my grandmother's kitchen! The balance of spices in every dish is perfect. 
+                        The butter chicken was rich and creamy, while the dal makhani had the perfect smoky flavor. 
+                        Truly a culinary delight that keeps us coming back for more.
                       </p>
-                      <h5 class="mb-0">Client Anil</h5>
+                      <h5 class="mb-0">Mrs. Mehta, Regular Customer</h5>
+                      <div class="text-warning">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1648,48 +1684,28 @@
                     <div class="testimonial-img">
                       <img
                         class="img-fluid"
-                        style="box-shadow: none"
-                        src="img/testimonial-2.jpg"
-                        alt="Client Priya"
+                        style="box-shadow: none; border-radius: 10px;"
+                        src="img/Testimonials_2.jpg"
+                        alt="Mr. Kapoor"
                       />
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="testimonial-text pb-5 pb-md-0">
-                      <h3>Perfect Event</h3>
+                      <h3>Exceptional Dining Experience</h3>
                       <p>
-                        Clita erat ipsum et lorem et sit, sed stet no labore
-                        lorem sit. Sanctus clita duo justo et tempor eirmod
-                        magna dolore erat amet
+                        Hosted my daughter's engagement party here and the food was the highlight of the evening! 
+                        The variety of chaats and kebabs were a huge hit, and the biryani was cooked to perfection. 
+                        The staff's attention to detail and warm hospitality made the celebration even more special.
                       </p>
-                      <h5 class="mb-0">Client Priya</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Testimonial Item 3 -->
-              <div class="testimonial-item">
-                <div class="row g-5 align-items-center">
-                  <div class="col-md-6">
-                    <div class="testimonial-img">
-                      <img
-                        class="img-fluid"
-                        style="box-shadow: none"
-                        src="img/testimonial-3.jpg"
-                        alt="Client Rohan"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="testimonial-text pb-5 pb-md-0">
-                      <h3>Great Value</h3>
-                      <p>
-                        Diam amet diam et eos labore. Clita erat ipsum et lorem
-                        et sit, sed stet no labore lorem sit. Sanctus clita duo
-                        justo et tempor eirmod magna dolore erat amet
-                      </p>
-                      <h5 class="mb-0">Client Rohan</h5>
+                      <h5 class="mb-0">Mr. Kapoor, Event Host</h5>
+                      <div class="text-warning">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
