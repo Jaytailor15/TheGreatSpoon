@@ -1,261 +1,1638 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>iSTUDIO - Interior Design Website Template Free</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+  <head>
+    <meta charset="utf-8" />
+    <title>Contact The Great Spoon - Premier Catering Services in Ahmedabad</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="catering services, event catering, wedding catering, corporate catering, birthday party catering, Ahmedabad catering, The Great Spoon" name="keywords" />
+    <meta content="Contact The Great Spoon for exceptional catering services in Ahmedabad. Specializing in weddings, corporate events, and private parties. Get a free quote today!" name="description" />
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Contact The Great Spoon - Premier Catering Services" />
+    <meta property="og:description" content="Looking for professional catering services in Ahmedabad? Contact The Great Spoon for exceptional culinary experiences at your events." />
+    <meta property="og:image" content="img/tsg-logo.png" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.thegreatspoon.com/contact.html" />
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/tsg-logo.png" rel="icon" />
 
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Grotesk&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Grotesk&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Splash Screen Stylesheet -->
+    <link href="css/splash.css" rel="stylesheet" />
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
+    <link href="css/style.css" rel="stylesheet" />
+    
+    <!-- Smooth Scrolling Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              // Update active link
+              document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+                link.classList.remove('active');
+              });
+              this.classList.add('active');
+              
+              // Smooth scroll to target
+              window.scrollTo({
+                top: targetElement.offsetTop - 100, // Adjust for fixed header
+                behavior: 'smooth'
+              });
+              
+              // Close mobile menu if open
+              const navbarCollapse = document.querySelector('.navbar-collapse');
+              if (navbarCollapse.classList.contains('show')) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {toggle: false});
+                bsCollapse.hide();
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </head>
 
-<body>
+  <body>
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="splash-screen">
+      <div class="splash-bg"></div>
+      <div class="splash-content">
+        <img
+          src="img/tsg-logo.png"
+          alt="The Great Spoon"
+          class="splash-logo"
+          style="border: none; outline: none"
+        />
+        <div class="splash-loading">Loading...</div>
+      </div>
+    </div>
+
     <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div
+        class="spinner-grow text-danger"
+        style="width: 3rem; height: 3rem"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>
     <!-- Spinner End -->
 
-
     <!-- Navbar Start -->
     <div class="container-fluid sticky-top">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light border-bottom border-2 border-white">
-                <a href="index.html" class="navbar-brand">
-                    <h1>iSTUDIO</h1>
-                </a>
-                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
-                    data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Services</a>
-                        <a href="project.html" class="nav-item nav-link">Projects</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu bg-light mt-2">
-                                <a href="feature.html" class="dropdown-item">Features</a>
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link active">Contact</a>
-                    </div>
-                </div>
-            </nav>
-        </div>
+      <div class="container">
+        <nav
+          class="navbar navbar-expand-lg navbar-light border-bottom border-2 border-white"
+        >
+          <a href="index.html" class="navbar-brand">
+            <img
+              src="img/tsg-logo.png"
+              alt="The Great Spoon Logo"
+              style="height: 70px"
+            />
+          </a>
+          <button
+            type="button"
+            class="navbar-toggler ms-auto me-0"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto">
+              <a href="./index.html" class="nav-item nav-link" data-section="home">Home</a>
+              <a href="./about.html" class="nav-item nav-link" data-section="about">About Us</a>
+              <a href="./service.html" class="nav-item nav-link" data-section="services">Our Services</a>
+              <a href="./index.html#events" class="nav-item nav-link" data-section="events">Events</a>
+              <a href="./index.html#testimonials" class="nav-item nav-link" data-section="testimonials">Testimonials</a>
+              <a href="./contact.html" class="nav-item nav-link active" data-section="contact">Contact Us</a>
+            </div>
+          </div>
+        </nav>
+      </div>
     </div>
     <!-- Navbar End -->
 
+    <!-- Hero Section -->
+    <div id="home">
+      <div class="hero-header position-relative" style="height: 70vh; overflow: hidden">
+        <picture class="position-absolute w-100 h-100">
+          <img
+            src="img/contact-bg.jpg"
+            alt="Contact Us Hero Image"
+            style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              filter: brightness(0.4);
+            "
+            onerror="this.src='img/hero-bg1.jpg'"
+          />
+        </picture>
+        <div
+          style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+              to bottom,
+              rgba(0, 0, 0, 0.6),
+              rgba(0, 0, 0, 0.3)
+            );
+            z-index: 1;
+          "
+        ></div>
 
-    <!-- Hero Start -->
-    <div class="container-fluid pb-5 bg-primary hero-header">
-        <div class="container py-5">
-            <div class="row g-3 align-items-center">
-                <div class="col-lg-6 text-center text-lg-start">
-                    <h1 class="display-1 mb-0 animated slideInLeft">Contact</h1>
-                </div>
-                <div class="col-lg-6 animated slideInRight">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center justify-content-lg-end mb-0">
-                            <li class="breadcrumb-item"><a class="text-primary" href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a class="text-primary" href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-secondary active" aria-current="page">Contact</li>
-                        </ol>
-                    </nav>
-                </div>
+        <div class="container h-100">
+          <div
+            class="row h-100 align-items-center justify-content-center text-center"
+          >
+            <div class="col-lg-10">
+              <h1
+                class="display-1 text-white mb-4 animated fadeInUp"
+                style="
+                  font-family: 'Playfair Display', serif;
+                  letter-spacing: 2px;
+                  font-size: calc(3rem + 2vw);
+                "
+              >
+                Get in <span class="text-danger">Touch</span>
+              </h1>
+              <p
+                class="fs-4 text-white mb-4 animated fadeInUp delay-1"
+                style="
+                  font-family: 'Source Sans Pro', sans-serif;
+                  font-weight: 300;
+                  letter-spacing: 1px;
+                  max-width: 800px;
+                  margin: 0 auto;
+                "
+              >
+                Ready to create your perfect event? Let's discuss your catering needs
+              </p>
+              <div
+                class="border-top border-bottom border-white py-4 px-4 animated fadeInUp delay-2"
+                style="max-width: 600px; margin: 0 auto"
+              >
+                <h5
+                  class="text-white"
+                  style="
+                    font-family: 'Source Sans Pro', sans-serif;
+                    letter-spacing: 3px;
+                    font-weight: 400;
+                    font-size: 1.1rem;
+                  "
+                >
+                  WE'RE HERE TO HELP YOU PLAN THE PERFECT EVENT
+                </h5>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- Hero End -->
+    <!-- Hero Section End -->
 
-
-    <!-- Contact Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="text-center wow fadeIn" data-wow-delay="0.1s">
-                <h1 class="mb-5">Have Any Query? <span class="text-uppercase text-primary bg-light px-2">Contact Us</span></h1>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <p class="text-center mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                    <div class="wow fadeIn" data-wow-delay="0.3s">
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                        <label for="subject">Subject</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
-                                        <label for="message">Message</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+    <!-- Contact Information Start -->
+    <div class="contact-info-section container-fluid py-5">
+      <div class="container">
+        <div class="text-center mb-5 wow fadeIn" data-wow-delay="0.1s">
+          <div class="section-header mb-4">
+            <h1 class="display-4 fw-bold mb-3">
+              Let's <span class="text-uppercase text-danger bg-light px-3 py-2 rounded">Connect</span>
+            </h1>
+            <div class="section-divider mx-auto mb-3"></div>
+            <p class="lead text-muted fs-5" style="max-width: 800px; margin: 0 auto; line-height: 1.8;">
+              Share the details of your function. A Catering Specialist from TGS Caterers will reach out to address your inquiries and share information about our comprehensive catering services.
+            </p>
+          </div>
         </div>
-    </div>
-    <!-- Contact End -->
         
-
-    <!-- Newsletter Start -->
-    <div class="container-fluid bg-primary newsletter p-0">
-        <div class="container p-0">
-            <div class="row g-0 align-items-center">
-                <div class="col-md-5 ps-lg-0 text-start wow fadeIn" data-wow-delay="0.2s">
-                    <img class="img-fluid w-100" src="img/newsletter.jpg" alt="">
-                </div>
-                <div class="col-md-7 py-5 newsletter-text wow fadeIn" data-wow-delay="0.5s">
-                    <div class="p-5">
-                        <h1 class="mb-5">Subscribe the <span class="text-uppercase text-primary bg-white px-2">Newsletter</span></h1>
-                        <div class="position-relative w-100 mb-2">
-                            <input class="form-control border-0 w-100 ps-4 pe-5" type="text"
-                                placeholder="Enter Your Email" style="height: 60px;">
-                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-2 me-2"><i
-                                    class="fa fa-paper-plane text-primary fs-4"></i></button>
-                        </div>
-                        <p class="mb-0">Diam sed sed dolor stet amet eirmod</p>
-                    </div>
-                </div>
+        <div class="row g-4 mb-5">
+          <!-- Contact Info Cards -->
+          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="contact-info-card text-center p-4 bg-white border-0 h-100">
+              <div class="contact-icon bg-danger text-white rounded-circle mb-4 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                <i class="fas fa-map-marker-alt fa-2x"></i>
+              </div>
+              <h5 class="fw-bold mb-3 text-dark fs-5">Our Location</h5>
+              <p class="text-muted mb-0 fs-6" style="line-height: 1.6;">
+                A-505, Infinity Tower, Corporate Road, Nr. Hotel Ramada, Prahlad Nagar, Ahmedabad-380 015, Gujarat, India
+              </p>
             </div>
+          </div>
+          
+          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="contact-info-card text-center p-4 bg-white border-0 h-100">
+              <div class="contact-icon bg-danger text-white rounded-circle mb-4 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                <i class="fas fa-phone-alt fa-2x"></i>
+              </div>
+              <h5 class="fw-bold mb-3 text-dark fs-5">Phone Number</h5>
+              <p class="text-muted mb-0 fs-6" style="line-height: 1.6;">
+                <strong class="text-dark">+91 97141 47482</strong><br>
+                Call us anytime for catering inquiries
+              </p>
+            </div>
+          </div>
+          
+          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="contact-info-card text-center p-4 bg-white border-0 h-100">
+              <div class="contact-icon bg-danger text-white rounded-circle mb-4 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                <i class="fas fa-envelope fa-2x"></i>
+              </div>
+              <h5 class="fw-bold mb-3 text-dark fs-5">Email Address</h5>
+              <p class="text-muted mb-0 fs-6" style="line-height: 1.6;">
+                <strong class="text-dark">tgscateringservices@gmail.com</strong><br>
+                We'll respond within 24 hours
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- Newsletter End -->
+    <!-- Contact Information End -->
 
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-white-50 footer pt-5">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-                    <a href="index.html" class="d-inline-block mb-3">
-                        <h1 class="text-white">iSTUDIO</h1>
-                    </a>
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
-                        amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                        clita duo justo et tempor</p>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
-                    <h5 class="text-white mb-4">Get In Touch</h5>
-                    <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-instagram"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                    <h5 class="text-white mb-4">Popular Link</h5>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Privacy Policy</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Career</a>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
-                    <h5 class="text-white mb-4">Our Services</h5>
-                    <a class="btn btn-link" href="">Interior Design</a>
-                    <a class="btn btn-link" href="">Project Planning</a>
-                    <a class="btn btn-link" href="">Renovation</a>
-                    <a class="btn btn-link" href="">Implement</a>
-                    <a class="btn btn-link" href="">Landscape Design</a>
-                </div>
+    <!-- Contact Form Start -->
+    <div class="contact-form-section container-fluid py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="text-center mb-5 wow fadeIn" data-wow-delay="0.1s">
+              <div class="form-header mb-4">
+                <h2 class="display-5 fw-bold mb-3">
+                  Quick <span class="text-uppercase text-danger bg-light px-3 py-2 rounded">Enquiry</span>
+                </h2>
+                <div class="section-divider mx-auto mb-3"></div>
+                <p class="lead text-muted fs-5" style="max-width: 700px; margin: 0 auto; line-height: 1.8;">
+                  Share the details of your function. A Catering Specialist from TGS Caterers will reach out to address your inquiries and share information about our comprehensive catering services.
+                </p>
+              </div>
             </div>
-        </div>
-        <div class="container wow fadeIn" data-wow-delay="0.1s">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
-
-                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+            
+            <div class="wow fadeIn" data-wow-delay="0.3s">
+              <div class="contact-form-container bg-white p-4 p-md-5 rounded border-0">
+                <form id="contactForm">
+                  <div class="row g-4">
+                                                    <div class="col-md-6">
+                      <label for="name" class="form-label fw-semibold fs-6 text-dark">
+                        Full Name <span class="text-danger">*</span>
+                      </label>
+                      <div class="input-group">
+                        <span class="input-group-text bg-light border-end-0">
+                          <i class="fas fa-user text-danger"></i>
+                        </span>
+                        <input type="text" class="form-control border-start-0 fs-6" id="name" placeholder="Enter your full name" required>
+                                    </div>
+                                </div>
+                    
+                                <div class="col-md-6">
+                      <label for="email" class="form-label fw-semibold fs-6 text-dark">
+                        Email Address <span class="text-danger">*</span>
+                      </label>
+                      <div class="input-group">
+                        <span class="input-group-text bg-light border-end-0">
+                          <i class="fas fa-envelope text-danger"></i>
+                        </span>
+                        <input type="email" class="form-control border-start-0 fs-6" id="email" placeholder="Enter your email" required>
+                                    </div>
+                                </div>
+                    
+                    <div class="col-md-6">
+                      <label for="phone" class="form-label fw-semibold fs-6 text-dark">
+                        Phone Number <span class="text-danger">*</span>
+                      </label>
+                      <div class="input-group">
+                        <span class="input-group-text bg-light border-end-0">
+                          <i class="fas fa-phone text-danger"></i>
+                        </span>
+                        <input type="tel" class="form-control border-start-0 fs-6" id="phone" placeholder="Enter your phone number" required>
+                      </div>
                     </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FAQs</a>
+                    
+                    <div class="col-md-6">
+                      <label for="eventType" class="form-label fw-semibold fs-6 text-dark">
+                        Event Type <span class="text-danger">*</span>
+                      </label>
+                      <div class="input-group">
+                        <span class="input-group-text bg-light border-end-0">
+                          <i class="fas fa-calendar-alt text-danger"></i>
+                        </span>
+                        <select class="form-select border-start-0 fs-6" id="eventType" required>
+                          <option value="" selected disabled>Select Event Type</option>
+                          <option value="wedding">Wedding Ceremony</option>
+                          <option value="reception">Reception Catering</option>
+                          <option value="corporate">Corporate Catering</option>
+                          <option value="destination">Destination Wedding</option>
+                          <option value="babyshower">Baby Shower Catering</option>
+                          <option value="birthday">Birthday Party Catering</option>
+                          <option value="social">Social Functions</option>
+                          <option value="sangeet">Sangeet Ceremony</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                      <label for="eventDate" class="form-label fw-semibold fs-6 text-dark">
+                        Event Date
+                      </label>
+                      <div class="input-group">
+                        <span class="input-group-text bg-light border-end-0">
+                          <i class="fas fa-calendar text-danger"></i>
+                        </span>
+                        <input type="date" class="form-control border-start-0 fs-6" id="eventDate" placeholder="Select event date">
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                      <label for="guestCount" class="form-label fw-semibold fs-6 text-dark">
+                        Expected Guests
+                      </label>
+                      <div class="input-group">
+                        <span class="input-group-text bg-light border-end-0">
+                          <i class="fas fa-users text-danger"></i>
+                        </span>
+                        <input type="number" class="form-control border-start-0 fs-6" id="guestCount" placeholder="Number of guests" min="1">
+                      </div>
+                    </div>
+                    
+                                <div class="col-12">
+                      <label for="subject" class="form-label fw-semibold fs-6 text-dark">
+                        Subject <span class="text-danger">*</span>
+                      </label>
+                      <div class="input-group">
+                        <span class="input-group-text bg-light border-end-0">
+                          <i class="fas fa-tag text-danger"></i>
+                        </span>
+                        <input type="text" class="form-control border-start-0 fs-6" id="subject" placeholder="What is this regarding?" required>
+                                    </div>
+                                </div>
+                    
+                                <div class="col-12">
+                      <label for="message" class="form-label fw-semibold fs-6 text-dark">
+                        Event Details <span class="text-danger">*</span>
+                      </label>
+                      <div class="input-group">
+                        <span class="input-group-text bg-light border-end-0 align-items-start pt-3">
+                          <i class="fas fa-comment-dots text-danger"></i>
+                        </span>
+                        <textarea class="form-control border-start-0 fs-6" id="message" rows="5" placeholder="Tell us about your event requirements, theme, dietary preferences, and any special requests..." required></textarea>
+                                    </div>
+                                </div>
+                    
+                                <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="newsletter" checked>
+                        <label class="form-check-label text-muted fs-6" for="newsletter">
+                          I would like to receive updates about TGS Caterers services and special offers
+                        </label>
+                      </div>
+                    </div>
+                    
+                    <div class="col-12 mt-4">
+                      <button class="btn btn-danger btn-lg w-100 py-3 fw-semibold fs-5" type="submit">
+                        <i class="fas fa-paper-plane me-2"></i>Send Enquiry
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Contact Form End -->
+
+    <!-- Services Overview Start -->
+    <div class="services-overview-section container-fluid py-5">
+      <div class="container">
+        <div class="text-center mb-5 wow fadeIn" data-wow-delay="0.1s">
+          <div class="services-header mb-4">
+            <h2 class="display-5 fw-bold mb-3">
+              Our <span class="text-uppercase text-danger bg-light px-3 py-2 rounded">Services</span>
+            </h2>
+            <div class="section-divider mx-auto mb-3"></div>
+            <p class="lead text-muted fs-5" style="max-width: 700px; margin: 0 auto; line-height: 1.8;">
+              We Share Moments Tailored for Shared Delight
+            </p>
+          </div>
+        </div>
+        
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="service-overview-card text-center p-4 bg-white border-0 h-100">
+              <div class="service-icon bg-danger text-white rounded-circle mb-4 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                <i class="fas fa-heart fa-2x"></i>
+              </div>
+              <h5 class="fw-bold mb-3 text-dark fs-5">Wedding Ceremony</h5>
+              <p class="text-muted mb-0 fs-6" style="line-height: 1.6;">Complete wedding catering services with traditional and modern cuisine options</p>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="service-overview-card text-center p-4 bg-white border-0 h-100">
+              <div class="service-icon bg-danger text-white rounded-circle mb-4 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                <i class="fas fa-building fa-2x"></i>
+              </div>
+              <h5 class="fw-bold mb-3 text-dark fs-5">Corporate Catering</h5>
+              <p class="text-muted mb-0 fs-6" style="line-height: 1.6;">Professional catering for meetings, conferences, and corporate events</p>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="service-overview-card text-center p-4 bg-white border-0 h-100">
+              <div class="service-icon bg-danger text-white rounded-circle mb-4 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                <i class="fas fa-plane fa-2x"></i>
+              </div>
+              <h5 class="fw-bold mb-3 text-dark fs-5">Destination Weddings</h5>
+              <p class="text-muted mb-0 fs-6" style="line-height: 1.6;">Specialized catering services for destination wedding ceremonies</p>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.7s">
+            <div class="service-overview-card text-center p-4 bg-white border-0 h-100">
+              <div class="service-icon bg-danger text-white rounded-circle mb-4 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                <i class="fas fa-birthday-cake fa-2x"></i>
+              </div>
+              <h5 class="fw-bold mb-3 text-dark fs-5">Special Events</h5>
+              <p class="text-muted mb-0 fs-6" style="line-height: 1.6;">Birthday parties, baby showers, and social function catering</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Services Overview End -->
+
+    <!-- Map Section Start -->
+    <div class="map-section container-fluid py-5">
+      <div class="container">
+        <div class="text-center mb-5 wow fadeIn" data-wow-delay="0.1s">
+          <h2 class="display-5 fw-bold mb-3">
+            Find <span class="text-uppercase text-danger bg-light px-3 py-2 rounded">Us Here</span>
+          </h2>
+          <div class="section-divider mx-auto mb-3"></div>
+          <p class="lead text-muted fs-5" style="max-width: 700px; margin: 0 auto; line-height: 1.8;">
+            Visit us at our convenient location in Ahmedabad
+          </p>
+        </div>
+        
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="map-container position-relative overflow-hidden border">
+              <div class="ratio ratio-21x9">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m0!4v1722413363344!6m8!1m7!1sCAoSLEFGMVFpcE0wblFQWXBrVjZPM3hwbldjV29EbmFMaEJwSFRlZzkwT0Q4ckRk!2m2!1d23.0105824!2d72.5031278!3f0!4f0!5f0.7820865974627469"
+                  width="800"
+                  height="600"
+                  style="border: 0"
+                  allowfullscreen
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Our Location on Google Maps"
+                  aria-label="Interactive map showing The Great Spoon's business location at 23.0106° N, 72.5031° E"
+                  class="w-100 h-100"
+                ></iframe>
+              </div>
+              <div class="map-overlay d-flex align-items-center justify-content-center">
+                                        <a href="https://www.google.com/maps/dir//23.0105824,72.5031278/@23.010582,72.503128,17z?entry=ttu" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="btn btn-danger btn-lg d-flex align-items-center px-4 py-3">
+                          <i class="fas fa-directions me-2"></i>
+                          Get Directions
+                        </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Map Section End -->
+
+    <!-- Business Hours Start -->
+    <div class="business-hours-section container-fluid py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="text-center mb-5 wow fadeIn" data-wow-delay="0.1s">
+              <h2 class="mb-3">
+                Business <span class="text-uppercase text-danger bg-light px-2">Hours</span>
+              </h2>
+              <p class="lead text-muted">
+                We're available to discuss your catering needs and plan your perfect event
+              </p>
+            </div>
+            
+            <div class="row g-4">
+              <!-- Office Hours -->
+              <div class="col-lg-4 wow fadeInLeft" data-wow-delay="0.3s">
+                <div class="hours-card p-4 bg-light h-100 border-0">
+                  <div class="hours-header text-center mb-4">
+                    <div class="hours-icon bg-danger text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                      <i class="fas fa-clock fa-lg"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-0">Office Hours</h5>
+                    <p class="text-muted small mb-0">For Inquiries & Planning</p>
+                  </div>
+                  
+                  <div class="hours-timings">
+                    <div class="hours-row d-flex justify-content-between align-items-center py-2 border-bottom">
+                      <span class="fw-semibold text-dark">Monday - Friday</span>
+                      <span class="badge bg-success text-white px-3 py-2">9:00 AM - 6:00 PM</span>
+                    </div>
+                    <div class="hours-row d-flex justify-content-between align-items-center py-2 border-bottom">
+                      <span class="fw-semibold text-dark">Saturday</span>
+                      <span class="badge bg-warning text-dark px-3 py-2">10:00 AM - 4:00 PM</span>
+                    </div>
+                    <div class="hours-row d-flex justify-content-between align-items-center py-2 border-bottom">
+                      <span class="fw-semibold text-dark">Sunday</span>
+                      <span class="badge bg-secondary text-white px-3 py-2">Closed</span>
+                    </div>
+                    <div class="hours-row d-flex justify-content-between align-items-center py-2">
+                      <span class="fw-semibold text-dark">Public Holidays</span>
+                      <span class="badge bg-info text-white px-3 py-2">By Appointment</span>
+                    </div>
+                  </div>
+                  
+                  <div class="text-center mt-4">
+                    <p class="text-muted small mb-2">
+                      <i class="fas fa-info-circle text-danger me-1"></i>
+                      Extended hours available during peak wedding season
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Event Availability -->
+              <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="hours-card p-4 bg-light h-100 border-0">
+                  <div class="hours-header text-center mb-4">
+                    <div class="hours-icon bg-danger text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                      <i class="fas fa-calendar-check fa-lg"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-0">Event Availability</h5>
+                    <p class="text-muted small mb-0">Catering Services</p>
+                  </div>
+                  
+                  <div class="hours-timings">
+                    <div class="hours-row d-flex justify-content-between align-items-center py-2 border-bottom">
+                      <span class="fw-semibold text-dark">Weekdays</span>
+                      <span class="badge bg-success text-white px-3 py-2">Available</span>
+                    </div>
+                    <div class="hours-row d-flex justify-content-between align-items-center py-2 border-bottom">
+                      <span class="fw-semibold text-dark">Weekends</span>
+                      <span class="badge bg-success text-white px-3 py-2">Available</span>
+                    </div>
+                    <div class="hours-row d-flex justify-content-between align-items-center py-2 border-bottom">
+                      <span class="fw-semibold text-dark">Evenings</span>
+                      <span class="badge bg-success text-white px-3 py-2">Available</span>
+                    </div>
+                    <div class="hours-row d-flex justify-content-between align-items-center py-2">
+                      <span class="fw-semibold text-dark">Holidays</span>
+                      <span class="badge bg-success text-white px-3 py-2">Available</span>
+                    </div>
+                  </div>
+                  
+                  <div class="text-center mt-4">
+                    <p class="text-muted small mb-2">
+                      <i class="fas fa-star text-warning me-1"></i>
+                      Premium service available 24/7 for special events
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Consultation Hours -->
+              <div class="col-lg-4 wow fadeInRight" data-wow-delay="0.5s">
+                <div class="hours-card p-4 bg-light h-100 border-0">
+                  <div class="hours-header text-center mb-4">
+                    <div class="hours-icon bg-danger text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                      <i class="fas fa-users fa-lg"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-0">Consultation Hours</h5>
+                    <p class="text-muted small mb-0">Free Planning Sessions</p>
+                  </div>
+                  
+                  <div class="hours-timings">
+                    <div class="hours-row d-flex justify-content-between align-items-center py-2 border-bottom">
+                      <span class="fw-semibold text-dark">Morning</span>
+                      <span class="badge bg-primary text-white px-3 py-2">9:00 AM - 12:00 PM</span>
+                    </div>
+                    <div class="hours-row d-flex justify-content-between align-items-center py-2 border-bottom">
+                      <span class="fw-semibold text-dark">Afternoon</span>
+                      <span class="badge bg-primary text-white px-3 py-2">2:00 PM - 5:00 PM</span>
+                    </div>
+                    <div class="hours-row d-flex justify-content-between align-items-center py-2 border-bottom">
+                      <span class="fw-semibold text-dark">Evening</span>
+                      <span class="badge bg-primary text-white px-3 py-2">6:00 PM - 8:00 PM</span>
+                    </div>
+                    <div class="hours-row d-flex justify-content-between align-items-center py-2">
+                      <span class="fw-semibold text-dark">Weekends</span>
+                      <span class="badge bg-warning text-dark px-3 py-2">By Appointment</span>
+                    </div>
+                  </div>
+                  
+                  <div class="text-center mt-4">
+                    <p class="text-muted small mb-2">
+                      <i class="fas fa-phone text-danger me-1"></i>
+                      Call ahead for weekend consultations
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Additional Information -->
+            <div class="row mt-5">
+              <div class="col-12">
+                <div class="additional-info-card p-5 bg-danger text-white text-center position-relative overflow-hidden">
+                  <!-- Background Pattern -->
+                  <div class="bg-pattern"></div>
+                  
+                  <div class="row align-items-center position-relative z-index-2">
+                    <div class="col-lg-8">
+                      <div class="emergency-content text-start">
+                        <div class="emergency-icon mb-3">
+                          <i class="fas fa-clock fa-3x text-white opacity-75"></i>
                         </div>
+                        <h4 class="fw-bold mb-3 text-white fs-3">
+                          <i class="fas fa-exclamation-circle me-2 text-white opacity-75"></i>
+                          Need Catering Outside Business Hours?
+                        </h4>
+                        <p class="mb-0 text-white fs-5" style="line-height: 1.8; opacity: 0.95;">
+                          For urgent catering inquiries or emergency events, we offer <strong class="text-white opacity-90">24/7 support</strong>. 
+                          Contact us directly at <strong class="text-white fs-4">+91 97141 47482</strong> for immediate assistance.
+                        </p>
+                        <div class="emergency-features mt-4">
+                          <div class="row g-3">
+                            <div class="col-md-6">
+                              <div class="d-flex align-items-center text-white">
+                                <i class="fas fa-check-circle text-white opacity-75 me-2"></i>
+                                <span class="fs-6">Emergency Event Support</span>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="d-flex align-items-center text-white">
+                                <i class="fas fa-check-circle text-white opacity-75 me-2"></i>
+                                <span class="fs-6">24/7 Phone Support</span>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="d-flex align-items-center text-white">
+                                <i class="fas fa-check-circle text-white opacity-75 me-2"></i>
+                                <span class="fs-6">Immediate Response</span>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="d-flex align-items-center text-white">
+                                <i class="fas fa-check-circle text-white opacity-75 me-2"></i>
+                                <span class="fs-6">Urgent Catering Solutions</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                    <div class="col-lg-4 text-center text-lg-end">
+                      <div class="emergency-action">
+                        <div class="phone-display mb-3">
+                          <div class="phone-number bg-white text-danger p-3 mb-3">
+                            <i class="fas fa-phone-alt fa-2x mb-2"></i>
+                            <div class="fw-bold fs-4">+91 97141 47482</div>
+                            <small class="text-muted">24/7 Emergency Line</small>
+                          </div>
+                        </div>
+                        <a href="tel:+919714147482" class="btn btn-light btn-lg px-5 py-3 fw-bold fs-5 text-danger" style="border-radius: 0;">
+                          <i class="fas fa-phone me-2"></i>Call Now
+                        </a>
+                        <div class="mt-2">
+                          <small class="text-white opacity-75">Available 24/7 for urgent requests</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+    </div>
+    <!-- Business Hours End -->
+
+        <!-- Contact & Footer Start -->
+    <div id="contact" class="container-fluid bg-dark text-white-50 footer pt-5" style="background-color: #000000 !important">
+        <div class="container py-5">
+        <div class="row g-5">
+          <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+            <a href="index.html" class="d-inline-block mb-3">
+              <img
+                src="img/tgs-footer.png"
+                alt="TGS"
+                class="img-fluid"
+                style="width: 120px; height: 60px"
+              />
+            </a>
+            <p class="mb-0">
+              TGS Caterers - Your trusted partner for exceptional catering
+              services. We specialize in creating memorable culinary experiences
+              for weddings, corporate events, and special occasions with our
+              commitment to quality and excellence.
+            </p>
+          </div>
+          <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+            <h5 class="text-white mb-4">Get In Touch</h5>
+            <p>
+              <i class="fa fa-map-marker-alt me-3"></i>A-505, Infinity Tower, Corporate Road, Nr. Hotel Ramada, Prahlad Nagar, Ahmedabad-380 015, Gujarat, India
+            </p>
+            <p><i class="fa fa-phone-alt me-3"></i>+91 97141 47482</p>
+            <p><i class="fa fa-envelope me-3"></i>tgscateringservices@gmail.com</p>
+            <div class="d-flex pt-2">
+              <a
+                class="btn btn-outline-primary btn-square border-2 me-2"
+                href=""
+                style="
+                  border-color: var(--bs-primary);
+                  color: var(--bs-primary);
+                "
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a
+                class="btn btn-outline-primary btn-square border-2 me-2"
+                href=""
+                style="
+                  border-color: var(--bs-primary);
+                  color: var(--bs-primary);
+                "
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                class="btn btn-outline-primary btn-square border-2 me-2"
+                href=""
+                style="
+                  border-color: var(--bs-primary);
+                  color: var(--bs-primary);
+                "
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a
+                class="btn btn-outline-primary btn-square border-2 me-2"
+                href=""
+                style="
+                  border-color: var(--bs-primary);
+                  color: var(--bs-primary);
+                "
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a class="btn btn-outline-primary btn-square border-2 mb-2" href=""
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+            <h5 class="text-white mb-4">Quick Links</h5>
+            <a class="btn btn-link" href="">About Us</a>
+            <a class="btn btn-link" href="">Contact Us</a>
+            <a class="btn btn-link" href="">Privacy Policy</a>
+            <a class="btn btn-link" href="">Terms & Condition</a>
+            <a class="btn btn-link" href="">Careers</a>
+          </div>
+          <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+            <h5 class="text-white mb-4">Our Services</h5>
+            <a class="btn btn-link" href="">Wedding Catering</a>
+            <a class="btn btn-link" href="">Corporate Events</a>
+            <a class="btn btn-link" href="">Private Parties</a>
+            <a class="btn btn-link" href="">Special Occasions</a>
+            <a class="btn btn-link" href="">Menu Planning</a>
+          </div>
+        </div>
+      </div>
+      <div class="container wow fadeIn" data-wow-delay="0.1s">
+        <div class="copyright">
+          <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+              &copy; <a class="border-bottom" href="#">TGS Caterers</a>, All
+              Right Reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <div class="footer-menu">
+                <a href="">Home</a>
+                <a href="">Services</a>
+                <a href="">Gallery</a>
+                <a href="">Contact</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Footer End -->
 
-
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="btn btn-lg btn-danger btn-lg-square back-to-top" style="border-radius: 0;"
+      ><i class="bi bi-arrow-up"></i
+    ></a>
 
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/919714147482"
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Contact us on WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Professional Styling -->
+    <style>
+          /* Section Headers */
+    .section-header, .form-header, .services-header {
+      position: relative;
+    }
+    
+    .section-divider {
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, #dc3545, #ff6b6b);
+      margin: 0 auto;
+      border-radius: 2px;
+      box-shadow: 0 2px 10px rgba(220, 53, 69, 0.3);
+    }
+    
+    /* Contact Info Cards */
+    .contact-info-card {
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+      border-radius: 0;
+    }
+    
+    .contact-info-card:hover {
+      transform: translateY(-8px);
+      border-color: #dc3545;
+      border-width: 2px;
+    }
+    
+    .contact-info-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(220, 53, 69, 0.05), transparent);
+      transition: left 0.8s ease;
+    }
+    
+    .contact-info-card:hover::before {
+      left: 100%;
+    }
+    
+    .contact-icon {
+      transition: all 0.4s ease;
+    }
+    
+    .contact-info-card:hover .contact-icon {
+      transform: scale(1.15);
+      background: linear-gradient(45deg, #dc3545, #ff6b6b) !important;
+    }
+    
+    /* Contact Form Container */
+    .contact-form-container {
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      border-radius: 0;
+    }
+    
+    .contact-form-container:hover {
+      border-color: #dc3545;
+      border-width: 2px;
+      transform: translateY(-2px);
+    }
+    
+    /* Form Elements */
+    .form-label {
+      margin-bottom: 0.75rem;
+      color: #2c3e50 !important;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    
+    .form-control, .form-select {
+      transition: all 0.4s ease;
+      border-color: #dee2e6;
+      font-size: 0.95rem;
+      border-radius: 0;
+      padding: 0.75rem 1rem;
+    }
+    
+    .form-control:focus, .form-select:focus {
+      border-color: #dc3545;
+      box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.2);
+      transform: translateY(-2px);
+      background-color: #fff;
+    }
+    
+    .input-group-text {
+      border-color: #dee2e6;
+      background-color: #f8f9fa;
+      transition: all 0.4s ease;
+      border-radius: 0;
+    }
+    
+    .form-control:focus + .input-group-text,
+    .form-select:focus + .input-group-text {
+      border-color: #dc3545;
+      background-color: #fff;
+      box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.1);
+    }
+    
+    /* Submit Button */
+    .btn-danger {
+      transition: all 0.4s ease;
+      border: 2px solid transparent;
+      border-radius: 0;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    
+    .btn-danger:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(45deg, #dc3545, #ff6b6b) !important;
+      border-color: #dc3545;
+    }
+      
+      /* Form Styling */
+      .form-control:focus,
+      .form-select:focus {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+      }
+      
+      .input-group-text {
+        border-color: #dee2e6;
+      }
+      
+      /* Map Container */
+      .map-container {
+        transition: transform 0.3s ease;
+      }
+      
+      .map-container:hover {
+        transform: translateY(-3px);
+      }
+      
+      .map-overlay {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 10;
+      }
+      
+          /* Business Hours Cards */
+    .hours-card {
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hours-card:hover {
+      transform: translateY(-4px);
+      border-color: #dc3545;
+      border-width: 2px;
+    }
+    
+    .hours-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(220, 53, 69, 0.05), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .hours-card:hover::before {
+      left: 100%;
+    }
+    
+    .hours-header {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hours-icon {
+      transition: all 0.3s ease;
+    }
+    
+    .hours-card:hover .hours-icon {
+      transform: scale(1.05);
+    }
+    
+    .hours-timings {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hours-row {
+      transition: all 0.3s ease;
+      border-color: rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .hours-row:hover {
+      background-color: rgba(220, 53, 69, 0.05);
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-left: -10px;
+      margin-right: -10px;
+      border-radius: 5px;
+    }
+    
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border-radius: 0;
+      min-width: 80px;
+      text-align: center;
+    }
+    
+    /* Additional Info Card */
+    .additional-info-card {
+      background: linear-gradient(135deg, #dc3545, #c82333, #dc3545) !important;
+      border: none;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(220, 53, 69, 0.3);
+    }
+    
+    .bg-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.08)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.08)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.08)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.08)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.4;
+      z-index: 1;
+    }
+    
+    .z-index-2 {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .emergency-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .emergency-icon {
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .emergency-features {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .emergency-features .d-flex {
+      transition: all 0.3s ease;
+      padding: 0.5rem;
+      border-radius: 5px;
+    }
+    
+    .emergency-features .d-flex:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateX(5px);
+    }
+    
+    .phone-display {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .phone-number {
+      transition: all 0.3s ease;
+      border: 2px solid rgba(220, 53, 69, 0.2);
+    }
+    
+    .phone-number:hover {
+      transform: translateY(-3px);
+      border-color: #dc3545;
+    }
+    
+    .emergency-action {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .additional-info-card .btn-light {
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .additional-info-card .btn-light::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(220, 53, 69, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .additional-info-card .btn-light:hover::before {
+      left: 100%;
+    }
+    
+    .additional-info-card .btn-light:hover {
+      background-color: #dc3545;
+      color: white !important;
+      border-color: white;
+      transform: translateY(-3px);
+    }
+    
+    .text-warning {
+      color: #ffffff !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      font-weight: 600;
+    }
+    
+    /* Service Overview Cards */
+    .service-overview-card {
+      transition: all 0.4s ease;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 0;
+    }
+    
+    .service-overview-card:hover {
+      transform: translateY(-6px);
+      border-color: #dc3545;
+      border-width: 2px;
+    }
+    
+    .service-overview-card .service-icon {
+      transition: all 0.4s ease;
+    }
+    
+    .service-overview-card:hover .service-icon {
+      transform: scale(1.1);
+      background: linear-gradient(45deg, #dc3545, #ff6b6b) !important;
+    }
+      
+      /* WhatsApp Float Button */
+      .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        left: 40px;
+        background-color: #25d366;
+        color: #fff;
+        border-radius: 0;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease-in-out;
+        animation: pulse 2s infinite;
+      }
+
+      .whatsapp-float:hover {
+        background-color: #128c7e;
+        transform: scale(1.1);
+        text-decoration: none;
+        color: #fff;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .whatsapp-float {
+          width: 50px;
+          height: 50px;
+          font-size: 25px;
+          bottom: 20px;
+          left: 15px;
+        }
+        
+        .map-overlay {
+          position: relative;
+          top: 0;
+          right: 0;
+          margin-top: 1rem;
+          justify-content: center !important;
+        }
+        
+        .hours-card {
+          margin-bottom: 1rem;
+        }
+        
+        .additional-info-card .btn-light {
+          width: 100%;
+          margin-top: 1rem;
+        }
+        
+        .badge {
+          font-size: 0.7rem;
+          min-width: 70px;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .hours-icon {
+          width: 50px !important;
+          height: 50px !important;
+        }
+        
+        .hours-card {
+          padding: 1.5rem !important;
+        }
+        
+        .additional-info-card {
+          padding: 1.5rem !important;
+        }
+        
+        .additional-info-card h5 {
+          font-size: 1.1rem;
+        }
+        
+        .additional-info-card p {
+          font-size: 0.9rem;
+        }
+        
+        /* Contact Info Cards Mobile */
+        .contact-info-card {
+          padding: 1.5rem !important;
+          margin-bottom: 1rem;
+        }
+        
+        .contact-icon {
+          width: 60px !important;
+          height: 60px !important;
+        }
+        
+        .contact-icon i {
+          font-size: 1.5rem !important;
+        }
+        
+        /* Form Mobile */
+        .contact-form-container {
+          padding: 1.5rem !important;
+        }
+        
+        .form-label {
+          font-size: 0.9rem !important;
+        }
+        
+        .form-control, .form-select {
+          font-size: 0.9rem !important;
+        }
+        
+        /* Section Headers Mobile */
+        .section-divider {
+          width: 80px;
+          height: 3px;
+        }
+        
+        .display-4 {
+          font-size: 2rem !important;
+        }
+        
+        .display-5 {
+          font-size: 1.75rem !important;
+        }
+        
+        .lead {
+          font-size: 1rem !important;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .contact-info-card {
+          margin-bottom: 1rem;
+        }
+        
+        .contact-icon {
+          width: 70px !important;
+          height: 70px !important;
+        }
+        
+        .section-divider {
+          width: 90px;
+        }
+      }
+      
+      /* Section Backgrounds */
+      .hero-header {
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), 
+                    url('img/contact-bg.jpg') center/cover no-repeat;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .hero-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(220, 53, 69, 0.1), rgba(0, 0, 0, 0.1));
+        z-index: 1;
+      }
+      
+      .contact-info-section {
+        background: #f8f9fa;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .contact-info-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(220,53,69,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+        opacity: 0.4;
+      }
+      
+      .contact-form-section {
+        background: #ffffff;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .contact-form-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="lines" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M0 25h50" stroke="rgba(220,53,69,0.02)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23lines)"/></svg>');
+        opacity: 0.6;
+      }
+      
+      .map-section {
+        background: #f1f3f4;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .map-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0v50M0 25h50" stroke="rgba(220,53,69,0.02)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23lines)"/></svg>');
+        opacity: 0.5;
+      }
+      
+      .business-hours-section {
+        background: #ffffff;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .business-hours-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="circles" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="2" fill="rgba(220,53,69,0.02)"/></pattern></defs><rect width="100" height="100" fill="url(%23circles)"/></svg>');
+        opacity: 0.4;
+      }
+      
+      .services-overview-section {
+        background: #f8f9fa;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .services-overview-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hexagons" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M15 0l13 7.5v15L15 30 2 22.5v-15z" fill="rgba(220,53,69,0.01)"/></pattern></svg>');
+        opacity: 0.3;
+      }
+      
+      /* Section Content Positioning */
+      .contact-info-section .container,
+      .contact-form-section .container,
+      .map-section .container,
+      .business-hours-section .container,
+      .services-overview-section .container {
+        position: relative;
+        z-index: 2;
+      }
+    </style>
 
     <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- Template Javascript -->
+    <!-- Main JavaScript -->
+        <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- Form Validation Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Form validation
+        const form = document.getElementById('contactForm');
+        
+        form.addEventListener('submit', function(event) {
+          event.preventDefault();
+          
+          if (!form.checkValidity()) {
+            event.stopPropagation();
+          } else {
+            // Show loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission (replace with actual API call)
+            setTimeout(() => {
+              // Show success message
+              const formContainer = form.parentElement;
+              formContainer.innerHTML = `
+                <div class="text-center py-5">
+                  <i class="fas fa-check-circle text-success fa-4x mb-3"></i>
+                  <h3 class="fw-bold">Thank You!</h3>
+                  <p class="text-muted mb-4">Your message has been sent successfully. We'll get back to you shortly.</p>
+                  <button class="btn btn-outline-danger" onclick="location.reload()">
+                    <i class="fas fa-paper-plane me-2"></i>Send Another Message
+                  </button>
+                </div>
+              `;
+              
+              // Scroll to success message
+              formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 2000);
+          }
+          
+          form.classList.add('was-validated');
+        });
+
+        // Real-time validation feedback
+        const inputs = form.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+          input.addEventListener('input', function() {
+            if (this.checkValidity()) {
+              this.classList.remove('is-invalid');
+              this.classList.add('is-valid');
+            } else {
+              this.classList.remove('is-valid');
+              this.classList.add('is-invalid');
+            }
+          });
+        });
+      });
+    </script>
 </body>
 
+</html>
+
+    <!-- Splash Screen JavaScript -->
+    <script src="js/splash.js"></script>
+
+    <!-- Contact Form Handler -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contactForm');
+        
+        if (contactForm) {
+          contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const eventType = document.getElementById('eventType').value;
+            const eventDate = document.getElementById('eventDate').value;
+            const guestCount = document.getElementById('guestCount').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            const newsletter = document.getElementById('newsletter').checked;
+            
+            // Basic validation
+            if (!name || !email || !phone || !eventType || !subject || !message) {
+              alert('Please fill in all required fields marked with *.');
+              return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+              alert('Please enter a valid email address.');
+              return;
+            }
+            
+            // Phone validation
+            const phoneRegex = /^[0-9+\-\s()]{10,}$/;
+            if (!phoneRegex.test(phone)) {
+              alert('Please enter a valid phone number.');
+              return;
+            }
+            
+            // Show success message
+            alert('Thank you for your enquiry! A Catering Specialist from TGS Caterers will reach out to you within 24 hours to discuss your event requirements.');
+            
+            // Reset form
+            this.reset();
+            document.getElementById('newsletter').checked = true;
+          });
+        }
+      });
+    </script>
+  </body>
 </html>
