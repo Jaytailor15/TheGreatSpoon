@@ -1,408 +1,1799 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>iSTUDIO - Interior Design Website Template Free</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+  <head>
+    <meta charset="utf-8" />
+    <title>About TGS Caterers - Leading Catering Services in Ahmedabad</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="catering services ahmedabad, wedding catering, corporate catering, event catering, best caterers in ahmedabad, TGS caterers" name="keywords" />
+    <meta content="Discover TGS Caterers, Ahmedabad's premier catering service. With over 20 years of excellence in wedding, corporate, and event catering, we deliver unforgettable culinary experiences." name="description" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="About TGS Caterers - Premier Catering Services in Ahmedabad" />
+    <meta property="og:description" content="Experience exceptional catering services with TGS Caterers. Leading the industry with innovative menus, impeccable service, and attention to detail." />
+    <meta property="og:image" content="img/tsg-logo.png" />
+    <meta property="og:url" content="https://www.tgscaterers.com/about.html" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.tgscaterers.com/about.html" />
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/tsg-logo.png" rel="icon" />
 
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Grotesk&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Grotesk&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom Styles -->
+    <style>
+      /* Remove rounded corners from service card buttons */
+      .service-card .btn {
+        border-radius: 0 !important;
+      }
+    </style>
+
+    <!-- Splash Screen Stylesheet -->
+    <link href="css/splash.css" rel="stylesheet" />
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
+    <link href="css/style.css" rel="stylesheet" />
+    
+    <!-- Smooth Scrolling Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              // Update active link
+              document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+                link.classList.remove('active');
+              });
+              this.classList.add('active');
+              
+              // Smooth scroll to target
+              window.scrollTo({
+                top: targetElement.offsetTop - 100, // Adjust for fixed header
+                behavior: 'smooth'
+              });
+              
+              // Close mobile menu if open
+              const navbarCollapse = document.querySelector('.navbar-collapse');
+              if (navbarCollapse.classList.contains('show')) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {toggle: false});
+                bsCollapse.hide();
+              }
+            }
+          });
+        });
+        
+        // Update active link on scroll
+        const sections = document.querySelectorAll('section[id], div[id]');
+        window.addEventListener('scroll', function() {
+          let current = '';
+          const scrollPosition = window.scrollY + 150;
+          
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+              current = '#' + section.getAttribute('id');
+            }
+          });
+          
+          document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === current) {
+              link.classList.add('active');
+            }
+          });
+        });
+      });
+    </script>
+  </head>
 
-<body>
+  <body>
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="splash-screen">
+      <div class="splash-bg"></div>
+      <div class="splash-content">
+        <img
+          src="img/tsg-logo.png"
+          alt="The Great Spoon"
+          class="splash-logo"
+          style="border: none; outline: none"
+        />
+        <div class="splash-loading">Loading...</div>
+      </div>
+    </div>
+
     <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div
+        class="spinner-grow text-danger"
+        style="width: 3rem; height: 3rem"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>
     <!-- Spinner End -->
 
-
     <!-- Navbar Start -->
     <div class="container-fluid sticky-top">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light border-bottom border-2 border-white">
-                <a href="index.html" class="navbar-brand">
-                    <h1>iSTUDIO</h1>
-                </a>
-                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
-                    data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link active">About</a>
-                        <a href="service.html" class="nav-item nav-link">Services</a>
-                        <a href="project.html" class="nav-item nav-link">Projects</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu bg-light mt-2">
-                                <a href="feature.html" class="dropdown-item">Features</a>
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    </div>
-                </div>
-            </nav>
-        </div>
+      <div class="container">
+        <nav
+          class="navbar navbar-expand-lg navbar-light border-bottom border-2 border-white"
+        >
+          <a href="index.html" class="navbar-brand">
+            <img
+              src="img/tsg-logo.png"
+              alt="The Great Spoon Logo"
+              style="height: 70px"
+            />
+          </a>
+          <button
+            type="button"
+            class="navbar-toggler ms-auto me-0"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto">
+              <a href="./index.html" class="nav-item nav-link" data-section="home">Home</a>
+              <a href="./about.html" class="nav-item nav-link active" data-section="about">About Us</a>
+              <a href="./service.html" class="nav-item nav-link" data-section="services">Our Services</a>
+              <a href="./index.html#events" class="nav-item nav-link" data-section="events">Events</a>
+              <a href="./index.html#testimonials" class="nav-item nav-link" data-section="testimonials">Testimonials</a>
+              <a href="./contact.html" class="nav-item nav-link" data-section="contact">Contact Us</a>
+            </div>
+          </div>
+        </nav>
+      </div>
     </div>
     <!-- Navbar End -->
 
+    <!-- Hero Section -->
+    <div id="home">
+      <div class="hero-header position-relative" style="height: 70vh; overflow: hidden">
+        <picture class="position-absolute w-100 h-100">
+          <img
+            src="img/about-1.jpg"
+            alt="About TGS Caterers"
+            style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              filter: brightness(0.3);
+              transform: scale(1.1);
+              transition: transform 20s ease;
+            "
+          />
+        </picture>
+        <div
+          style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+              to bottom,
+              rgba(0, 0, 0, 0.5),
+              rgba(0, 0, 0, 0.2)
+            );
+            z-index: 1;
+          "
+        ></div>
 
-    <!-- Hero Start -->
-    <div class="container-fluid pb-5 bg-primary hero-header">
-        <div class="container py-5">
-            <div class="row g-3 align-items-center">
-                <div class="col-lg-6 text-center text-lg-start">
-                    <h1 class="display-1 mb-0 animated slideInLeft">About</h1>
-                </div>
-                <div class="col-lg-6 animated slideInRight">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center justify-content-lg-end mb-0">
-                            <li class="breadcrumb-item"><a class="text-primary" href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a class="text-primary" href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-secondary active" aria-current="page">About</li>
-                        </ol>
-                    </nav>
+        <div class="container h-100">
+          <div
+            class="row h-100 align-items-center justify-content-center text-center"
+          >
+            <div class="col-lg-10">
+              <h1
+                class="display-2 text-white mb-3 animated fadeInUp"
+                style="
+                  font-family: 'Playfair Display', serif;
+                  letter-spacing: 1.5px;
+                  font-size: calc(2.5rem + 2vw);
+                "
+              >
+                  About <span class="text-danger">TGS Caterers</span>
+                </h1>
+                <p
+                  class="fs-5 text-white mb-4 animated fadeInUp delay-1"
+                  style="
+                    font-family: 'Source Sans Pro', sans-serif;
+                    font-weight: 300;
+                    letter-spacing: 0.5px;
+                    max-width: 800px;
+                    margin: 0 auto;
+                  "
+                >
+                  Trusted for over two decades, TGS Caterers is renowned for delivering exceptional catering experiences for weddings, corporate events, and special occasions. Our journey is defined by a passion for food, commitment to quality, and a legacy of memorable celebrations.
+                </p>
+                <div
+                  class="border-top border-bottom border-white py-3 px-4 animated fadeInUp delay-2"
+                  style="max-width: 600px; margin: 0 auto"
+                >
+                  <h5
+                    class="text-white"
+                    style="
+                      font-family: 'Source Sans Pro', sans-serif;
+                      letter-spacing: 2px;
+                      font-weight: 400;
+                      font-size: 1rem;
+                    "
+                  >
+                    CRAFTING CULINARY EXCELLENCE SINCE 2003
+                  </h5>
                 </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- Hero End -->
-
-
-    <!-- About Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
-                            <img class="img-fluid" src="img/about-1.jpg" alt="">
-                        </div>
-                        <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
-                            <img class="img-fluid h-75" src="img/about-2.jpg" alt="">
-                            <div class="h-25 d-flex align-items-center text-center bg-primary px-4">
-                                <h4 class="text-white lh-base mb-0">Award Winning Studio Since 1990</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h1 class="mb-5"><span class="text-uppercase text-primary bg-light px-2">History</span> of Our
-                        Creation</h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
-                        amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                        clita duo justo et tempor eirmod magna dolore erat amet</p>
-                    <p class="mb-5">Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no
-                        labore lorem sit. Sanctus clita duo justo et tempor.</p>
-                    <div class="row g-3">
-                        <div class="col-sm-6">
-                            <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Award Winning</h6>
-                            <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Professional Staff</h6>
-                        </div>
-                        <div class="col-sm-6">
-                            <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>24/7 Support</h6>
-                            <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Fair Prices</h6>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center mt-5">
-                        <a class="btn btn-primary px-4 me-2" href="">Read More</a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-instagram"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
+    <!-- Hero Section End -->
+    
+    <!-- About Page Start -->
+    <div id="about" class="container-fluid py-5 bg-white">
+      <div class="container wow fadeIn" data-wow-delay="0.3s">
+        
+        <!-- About Intro -->
+        <div class="row g-5 align-items-center mb-5">
+          <div class="col-lg-5 text-center">
+            <div class="hexagon-img-container mx-auto position-relative" style="width: 100%; max-width: 400px;">
+              <div class="ratio ratio-1x1">
+                <img
+                  class="img-fluid w-100 h-100 object-cover position-absolute top-0 start-0"
+                  src="img/about-2.jpg"
+                  alt="About TGS Caterers"
+                  style="object-position: center"
+                />
+              </div>
+              <div class="hexagon-border position-absolute top-0 start-0 w-100 h-100"></div>
             </div>
+          </div>
+          <div class="col-lg-7 wow fadeInRight" data-wow-delay="0.5s">
+            <div class="section-title position-relative pb-3 mb-4">
+              <h1 class="text-danger text-uppercase fw-bold mb-3">Why Choose TGS Caterers?</h1>
+              <div class="section-divider"></div>
+            </div>
+            <p class="lead mb-4">
+              TGS Caterers is a full-service catering company in Ahmedabad, known for its innovative menus, impeccable service, and attention to detail. We specialize in weddings, social gatherings, and corporate events, offering personalized solutions for every client.
+            </p>
+            <ul class="mb-4">
+              <li class="mb-2 d-flex align-items-center"><i class="fas fa-check-circle text-danger me-2"></i> Over 20 years of trusted experience</li>
+              <li class="mb-2 d-flex align-items-center"><i class="fas fa-check-circle text-danger me-2"></i> Award-winning culinary team</li>
+              <li class="mb-2 d-flex align-items-center"><i class="fas fa-check-circle text-danger me-2"></i> Custom menu planning for every occasion</li>
+              <li class="mb-2 d-flex align-items-center"><i class="fas fa-check-circle text-danger me-2"></i> Dedicated event specialists</li>
+              <li class="mb-2 d-flex align-items-center"><i class="fas fa-check-circle text-danger me-2"></i> Commitment to quality and hygiene</li>
+            </ul>
+            <h4 class="mt-4 mb-3 text-dark fw-bold">Our Specialties</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-unstyled">
+                  <li class="mb-3 d-flex align-items-center">
+                    <i class="fas fa-heart text-danger me-3 fa-lg"></i>
+                    <span>Weddings & Receptions</span>
+                  </li>
+                  <li class="mb-3 d-flex align-items-center">
+                    <i class="fas fa-birthday-cake text-danger me-3 fa-lg"></i>
+                    <span>Birthday Celebrations</span>
+                  </li>
+                  <li class="mb-3 d-flex align-items-center">
+                    <i class="fas fa-building text-danger me-3 fa-lg"></i>
+                    <span>Corporate Events</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-unstyled">
+                  <li class="mb-3 d-flex align-items-center">
+                    <i class="fas fa-users text-danger me-3 fa-lg"></i>
+                    <span>Private Parties</span>
+                  </li>
+                  <li class="mb-3 d-flex align-items-center">
+                    <i class="fas fa-star text-danger me-3 fa-lg"></i>
+                    <span>Festival Catering</span>
+                  </li>
+                  <li class="mb-3 d-flex align-items-center">
+                    <i class="fas fa-clipboard-list text-danger me-3 fa-lg"></i>
+                    <span>Custom Menu Planning</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-    <!-- About End -->
+        
+        <!-- Our Story -->
+        <div class="row g-5 align-items-center mb-5">
+          <div class="col-lg-7 wow fadeInLeft" data-wow-delay="0.5s">
+            <div class="section-title position-relative pb-3 mb-4">
+              <h2 class="text-danger fw-bold mb-3">Our Story</h2>
+              <div class="section-divider"></div>
+            </div>
+            <p class="lead mb-4">
+              The Great Spoon was founded in 2003 by Chef Rajesh Patel, who had a vision to bring gourmet catering services to Ahmedabad. 
+              What began as a small family business has grown into one of the region's most respected catering companies.
+            </p>
+            <p class="mb-4">
+              Our journey has been defined by a commitment to culinary excellence, innovative presentation, and exceptional service. 
+              We've evolved with changing tastes and trends while staying true to our core values of quality, integrity, and customer satisfaction.
+            </p>
+            <p class="mb-4">
+              Today, we proudly serve thousands of events annually, creating countless memories for our clients and their guests through our dedication to perfection in every detail.
+            </p>
+            <div class="row g-3 mt-4">
+              <div class="col-6">
+                <div class="d-flex align-items-center">
+                  <i class="fas fa-award text-danger me-2 fa-lg"></i>
+                  <span class="fw-semibold">Award-Winning Service</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex align-items-center">
+                  <i class="fas fa-clock text-danger me-2 fa-lg"></i>
+                  <span class="fw-semibold">20+ Years Experience</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 text-center wow fadeInRight" data-wow-delay="0.5s">
+            <div class="hexagon-img-container mx-auto position-relative" style="width: 100%; max-width: 400px;">
+              <div class="ratio ratio-1x1">
+                <img
+                  class="img-fluid w-100 h-100 object-cover position-absolute top-0 start-0"
+                  src="img/about-3.jpg"
+                  alt="Our Story"
+                  style="object-position: center"
+                />
+              </div>
+              <div class="hexagon-border position-absolute top-0 start-0 w-100 h-100"></div>
+            </div>
+          </div>
+        </div>
 
-
-    <!-- Team Start -->
-    <div class="container-fluid bg-light py-5">
-        <div class="container py-5">
-            <h1 class="mb-5">Our Professional <span class="text-uppercase text-primary bg-light px-2">Designers</span>
-            </h1>
+        <!-- Core Values -->
+        <div class="row mb-5 bg-light py-5 mx-n3">
+          <div class="col-12 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="section-title position-relative pb-3 mb-4 text-center">
+              <h2 class="text-danger text-uppercase fw-bold mb-3">Our Core Values</h2>
+              <div class="section-divider mx-auto"></div>
+            </div>
+            <div class="text-center mb-5">
+              <h4 class="fw-bold text-dark mb-3">Crafting Excellence in Every Detail</h4>
+              <p class="lead text-muted" style="max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                At TGS Caterers, we believe in delivering more than just food – we create experiences that last a lifetime. 
+                Our commitment to excellence, innovation, and customer satisfaction drives everything we do.
+              </p>
+            </div>
             <div class="row g-4">
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="team-item position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
-                        <div class="team-overlay">
-                            <small class="mb-2">Architect</small>
-                            <h4 class="lh-base text-light">Boris Johnson</h4>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+              <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="feature-box text-center p-4 shadow-sm rounded h-100">
+                  <div class="feature-icon bg-danger text-white rounded-circle mb-4 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                    <i class="fas fa-utensils fa-2x"></i>
+                  </div>
+                  <h5 class="fw-bold mb-3 text-dark">Excellence</h5>
+                  <p class="text-muted mb-0">We strive for perfection in every dish we prepare and every service we provide, maintaining the highest standards of quality.</p>
                 </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="team-item position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
-                        <div class="team-overlay">
-                            <small class="mb-2">Architect</small>
-                            <h4 class="lh-base text-light">Donald Pakura</h4>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+              <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="feature-box text-center p-4 shadow-sm rounded h-100">
+                  <div class="feature-icon bg-danger text-white rounded-circle mb-4 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                    <i class="fas fa-handshake fa-2x"></i>
+                  </div>
+                  <h5 class="fw-bold mb-3 text-dark">Integrity</h5>
+                  <p class="text-muted mb-0">We conduct our business with honesty, transparency, and ethical practices, building trust with every client interaction.</p>
                 </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="team-item position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
-                        <div class="team-overlay">
-                            <small class="mb-2">Architect</small>
-                            <h4 class="lh-base text-light">Bradley Gordon</h4>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+              <div class="col-md-4 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="feature-box text-center p-4 shadow-sm rounded h-100">
+                  <div class="feature-icon bg-danger text-white rounded-circle mb-4 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                    <i class="fas fa-heart fa-2x"></i>
+                  </div>
+                  <h5 class="fw-bold mb-3 text-dark">Passion</h5>
+                  <p class="text-muted mb-0">We bring enthusiasm and dedication to every event we cater, ensuring each occasion is memorable and special.</p>
                 </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
-                    <div class="team-item position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/team-4.jpg" alt="">
-                        <div class="team-overlay">
-                            <small class="mb-2">Architect</small>
-                            <h4 class="lh-base text-light">Alexander Bell</h4>
-                            <div class="d-flex justify-content-center">
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a class="btn btn-outline-primary btn-sm-square border-2 me-2" href="">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
+
+        <!-- Objective -->
+        <div class="row mb-5">
+          <div class="col-12 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="section-title position-relative pb-3 mb-4 text-center">
+              <h2 class="text-danger text-uppercase fw-bold mb-3">Our Objective</h2>
+              <div class="section-divider mx-auto"></div>
+            </div>
+            <div class="text-center mb-4">
+              <h4 class="fw-bold text-dark mb-3">Fostering Unforgettable Moments!</h4>
+              <p class="lead text-muted" style="max-width: 900px; margin: 0 auto;">
+                At The Great Spoon, we specialize in delivering peace of mind. With our seasoned and dedicated team, 
+                we manage every aspect of off-site catering, allowing you to fully immerse yourself in your event as a guest. 
+                From initial impressions to lasting memories, our pledge is to ensure each occasion is an extraordinary experience!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Essence Values -->
+        <div class="row mb-5 bg-white py-5">
+          <div class="col-12 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="section-title position-relative pb-3 mb-4 text-center">
+              <h2 class="text-danger text-uppercase fw-bold mb-3">Our Essence Values</h2>
+              <div class="section-divider mx-auto"></div>
+            </div>
+            <div class="text-center mb-4">
+              <h4 class="fw-bold text-dark mb-3">Our Promise to You</h4>
+            </div>
+            <div class="row g-4">
+              <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-card p-4 h-100 shadow-sm rounded">
+                  <div class="service-icon bg-danger text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                    <i class="fas fa-star fa-lg"></i>
+                  </div>
+                  <h5 class="fw-bold mb-3 text-dark">Service Excellence</h5>
+                  <p class="text-muted mb-0">We are committed to proactively identifying and meeting the needs of our colleagues, clients, and communities.</p>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-card p-4 h-100 shadow-sm rounded">
+                  <div class="service-icon bg-danger text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                    <i class="fas fa-users fa-lg"></i>
+                  </div>
+                  <h5 class="fw-bold mb-3 text-dark">Collaboration</h5>
+                  <p class="text-muted mb-0">Our success is directly correlated to active participation and the exchange of sound knowledge.</p>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-card p-4 h-100 shadow-sm rounded">
+                  <div class="service-icon bg-danger text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                    <i class="fas fa-award fa-lg"></i>
+                  </div>
+                  <h5 class="fw-bold mb-3 text-dark">Dedication</h5>
+                  <p class="text-muted mb-0">We are dedicated to the success of every event, as passion, purpose, and pride are the driving forces behind our team.</p>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="service-card p-4 h-100 shadow-sm rounded">
+                  <div class="service-icon bg-danger text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                    <i class="fas fa-shield-alt fa-lg"></i>
+                  </div>
+                  <h5 class="fw-bold mb-3 text-dark">Trustworthiness</h5>
+                  <p class="text-muted mb-0">We refuse to compromise on our quality, making us a reliable resource and dependable partner.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DEI Statement -->
+        <div class="row mb-5">
+          <div class="col-12 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="section-title position-relative pb-3 mb-4 text-center">
+              <h2 class="text-danger text-uppercase fw-bold mb-3">DEI Statement</h2>
+              <div class="section-divider mx-auto"></div>
+            </div>
+            <div class="text-center mb-4">
+              <h4 class="fw-bold text-dark mb-3">Inclusive Diversity and Equity</h4>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-lg-10">
+                <div class="p-4 bg-white shadow-sm rounded">
+                  <p class="lead text-center mb-3">
+                    At The Great Spoon, we believe that every event is a unique story, and we're here to craft an unforgettable culinary chapter for yours. 
+                    With years of expertise in the catering industry, our team combines creativity with a passion for exceptional flavors. 
+                  </p>
+                  <p class="text-center mb-0">
+                    From lavish weddings and intimate social gatherings to large corporate events, we tailor each menu to reflect your vision and taste, ensuring a personalized experience for every guest.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="row mb-5 bg-light py-5 mx-n3">
+          <div class="col-12 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="section-title position-relative pb-3 mb-4 text-center">
+              <h2 class="text-danger text-uppercase fw-bold mb-3">Our Achievements</h2>
+              <div class="section-divider mx-auto"></div>
+            </div>
+            <div class="row g-4 text-center">
+              <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="stat-card p-4 bg-white shadow-sm rounded h-100 position-relative overflow-hidden">
+                  <div class="stat-icon bg-danger text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                    <i class="fas fa-calendar-check fa-2x"></i>
+                  </div>
+                  <h3 class="text-danger fw-bold mb-2 counter" data-count="5000">5000+</h3>
+                  <p class="text-muted mb-0 fw-semibold">Successful Events</p>
+                  <div class="stat-overlay"></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="stat-card p-4 bg-white shadow-sm rounded h-100 position-relative overflow-hidden">
+                  <div class="stat-icon bg-danger text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                    <i class="fas fa-users fa-2x"></i>
+                  </div>
+                  <h3 class="text-danger fw-bold mb-2 counter" data-count="100000">100,000+</h3>
+                  <p class="text-muted mb-0 fw-semibold">Satisfied Guests</p>
+                  <div class="stat-overlay"></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="stat-card p-4 bg-white shadow-sm rounded h-100 position-relative overflow-hidden">
+                  <div class="stat-icon bg-danger text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                    <i class="fas fa-award fa-2x"></i>
+                  </div>
+                  <h3 class="text-danger fw-bold mb-2 counter" data-count="20">20+</h3>
+                  <p class="text-muted mb-0 fw-semibold">Years of Excellence</p>
+                  <div class="stat-overlay"></div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="stat-card p-4 bg-white shadow-sm rounded h-100 position-relative overflow-hidden">
+                  <div class="stat-icon bg-danger text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                    <i class="fas fa-star fa-2x"></i>
+                  </div>
+                  <h3 class="text-danger fw-bold mb-2 counter" data-count="99">99%</h3>
+                  <p class="text-muted mb-0 fw-semibold">Client Satisfaction</p>
+                  <div class="stat-overlay"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Commitment -->
+        <div class="row mb-5 bg-white py-5">
+          <div class="col-12 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="section-title position-relative pb-3 mb-4 text-center">
+              <h2 class="text-danger text-uppercase fw-bold mb-3">Our Commitment</h2>
+              <div class="section-divider mx-auto"></div>
+            </div>
+            <div class="text-center mb-4">
+              <h4 class="fw-bold text-dark mb-3">Excellence in Every Detail</h4>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-lg-10">
+                <div class="p-4 bg-white shadow-sm rounded">
+                  <p class="lead text-center mb-3">
+                    Our commitment to quality is unwavering. We source the freshest ingredients and collaborate with local vendors to bring you dishes that are both flavorful and beautifully presented.
+                  </p>
+                  <p class="text-center mb-3">
+                    Our chefs are masters of innovation, blending classic techniques with modern trends to create diverse menus that appeal to every palate. 
+                    Whether you're looking for traditional cuisine or a contemporary fusion, we have the expertise to bring your ideas to life.
+                  </p>
+                  <p class="text-center mb-0">
+                    Customer satisfaction is at the heart of what we do. We go beyond just catering; we provide a full-service experience, managing every detail with precision and care. 
+                    From initial consultations to the final plate served, our team is dedicated to making your event seamless and stress-free. 
+                    At The Great Spoon, we don't just serve food—we create memories.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-    <!-- Team End -->
-
-
-    <!-- Feature Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="text-center wow fadeIn" data-wow-delay="0.1s">
-                <h1 class="mb-5">Why People <span class="text-uppercase text-primary bg-light px-2">Choose Us</span></h1>
+    <!-- About Page End -->
+    
+    <!-- Call to Action Section -->
+    <div class="container-fluid py-4 bg-danger text-white">
+      <div class="container text-center">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.3s">
+            <h2 class="h3 fw-bold mb-3 text-white">Ready to Create Your Perfect Event?</h2>
+            <p class="mb-4 text-white" style="font-size: 1rem; font-weight: 300; letter-spacing: 0.3px; line-height: 1.6;">
+              Let us transform your vision into an unforgettable culinary experience. 
+              Contact us today to discuss your event requirements and get a personalized quote.
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <a href="./contact.html" class="btn btn-light btn-lg px-4 py-2 fw-semibold">
+                <i class="fas fa-phone me-2"></i>Contact Us
+              </a>
+              <a href="./service.html" class="btn btn-outline-light btn-lg px-4 py-2 fw-semibold">
+                <i class="fas fa-utensils me-2"></i>View Services
+              </a>
             </div>
-            <div class="row g-5 align-items-center text-center">
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
-                    <i class="fa fa-calendar-alt fa-5x text-primary mb-4"></i>
-                    <h4>25+ Years Experience</h4>
-                    <p class="mb-0">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <i class="fa fa-tasks fa-5x text-primary mb-4"></i>
-                    <h4>Best Interior Design</h4>
-                    <p class="mb-0">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <i class="fa fa-pencil-ruler fa-5x text-primary mb-4"></i>
-                    <h4>Innovative Architects</h4>
-                    <p class="mb-0">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
-                    <i class="fa fa-user fa-5x text-primary mb-4"></i>
-                    <h4>Customer Satisfaction</h4>
-                    <p class="mb-0">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <i class="fa fa-hand-holding-usd fa-5x text-primary mb-4"></i>
-                    <h4>Budget Friendly</h4>
-                    <p class="mb-0">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <i class="fa fa-check fa-5x text-primary mb-4"></i>
-                    <h4>Sustainable Material</h4>
-                    <p class="mb-0">Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet</p>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- Feature End -->
+  
+  <!-- Styles -->
+    <style>
+      /* Professional Section Styling */
+      .bg-light {
+        background-color: #f8f9fa !important;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .bg-light::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="pattern" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(220,53,69,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23pattern)"/></svg>');
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      
+      .bg-white {
+        background-color: #ffffff !important;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .bg-white::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0v50M0 25h50" stroke="rgba(220,53,69,0.02)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      .section-title {
+        position: relative;
+        margin-bottom: 2rem;
+      }
+    
+      .section-divider {
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, #dc3545, #ff6b6b);
+        margin: 0 auto;
+        border-radius: 2px;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .section-divider::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        animation: divider-shine 2s infinite;
+      }
+      
+      /* Section Spacing and Transitions */
+      .container-fluid {
+        transition: background-color 0.3s ease;
+      }
+      
+      [class*="bg-"] {
+        position: relative;
+        z-index: 1;
+      }
+      
+      .py-5 {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+      }
+      
+      @media (min-width: 992px) {
+        .py-5 {
+          padding-top: 5rem !important;
+          padding-bottom: 5rem !important;
+        }
+      }
+      
+      /* Section Content Positioning */
+      .container {
+        position: relative;
+        z-index: 2;
+      }
+      
+      /* Section Overlays */
+      [class*="bg-"]::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0,0,0,0.05), transparent);
+      }
+      
+      @keyframes divider-shine {
+        to {
+          left: 100%;
+        }
+      }    .section-title:not(.text-center) .section-divider {
+      margin: 0;
+    }
+    
+    /* Hexagon Image Container - Consistent with index.html */
+    .hexagon-img-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      clip-path: polygon(
+        50% 0%,
+        100% 25%,
+        100% 75%,
+        50% 100%,
+        0% 75%,
+        0% 25%
+      );
+      transition: all 0.5s ease;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+    }
 
+    .hexagon-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, #dc3545, #ff6b6b);
+      clip-path: polygon(
+        50% 0%,
+        100% 25%,
+        100% 75%,
+        50% 100%,
+        0% 75%,
+        0% 25%
+      );
+      z-index: -1;
+      transform: scale(1.02);
+      transition: all 0.5s ease;
+    }
 
-    <!-- Newsletter Start -->
-    <div class="container-fluid bg-primary newsletter p-0">
-        <div class="container p-0">
-            <div class="row g-0 align-items-center">
-                <div class="col-md-5 ps-lg-0 text-start wow fadeIn" data-wow-delay="0.2s">
-                    <img class="img-fluid w-100" src="img/newsletter.jpg" alt="">
-                </div>
-                <div class="col-md-7 py-5 newsletter-text wow fadeIn" data-wow-delay="0.5s">
-                    <div class="p-5">
-                        <h1 class="mb-5">Subscribe the <span class="text-uppercase text-primary bg-white px-2">Newsletter</span></h1>
-                        <div class="position-relative w-100 mb-2">
-                            <input class="form-control border-0 w-100 ps-4 pe-5" type="text"
-                                placeholder="Enter Your Email" style="height: 60px;">
-                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-2 me-2"><i
-                                    class="fa fa-paper-plane text-primary fs-4"></i></button>
-                        </div>
-                        <p class="mb-0">Diam sed sed dolor stet amet eirmod</p>
-                    </div>
-                </div>
+    .hexagon-img-container:hover {
+      transform: translateY(-10px) rotate(5deg);
+    }
+
+    .hexagon-img-container:hover .hexagon-border {
+      transform: scale(1.05);
+      background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    }
+    
+    /* Feature Boxes */
+    .feature-box {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      height: 100%;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .feature-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      border-color: #dc3545;
+    }
+    
+    .feature-icon {
+      transition: all 0.3s ease;
+    }
+    
+    .feature-box:hover .feature-icon {
+      transform: scale(1.1);
+      background: linear-gradient(45deg, #dc3545, #ff6b6b) !important;
+    }
+    
+    /* Service Cards */
+    .service-card {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      border-color: #dc3545;
+    }
+    
+    .service-icon {
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover .service-icon {
+      transform: scale(1.1);
+      background: linear-gradient(45deg, #dc3545, #ff6b6b) !important;
+    }
+    
+    /* Statistics Cards */
+    .stat-card {
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      height: 100%;
+      cursor: default;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      border-color: #dc3545;
+    }
+    
+    .stat-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, rgba(220, 53, 69, 0.1) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    
+    .stat-card:hover .stat-overlay {
+      opacity: 1;
+    }
+    
+    .stat-icon {
+      transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover .stat-icon {
+      transform: scale(1.1);
+      background: linear-gradient(45deg, #dc3545, #ff6b6b) !important;
+    }
+    
+    .counter {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    
+    /* Typography */
+    .text-muted {
+      color: #6c757d !important;
+    }
+    
+    .fw-semibold {
+      font-weight: 600 !important;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hexagon-img-container {
+        max-width: 300px !important;
+      }
+      
+      .section-divider {
+        width: 60px;
+      }
+      
+      .feature-icon {
+        width: 60px !important;
+        height: 60px !important;
+      }
+      
+      .service-icon {
+        width: 60px !important;
+        height: 60px !important;
+      }
+      
+      .stat-icon {
+        width: 60px !important;
+        height: 60px !important;
+      }
+      
+      .counter {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hexagon-img-container {
+        max-width: 250px !important;
+      }
+      
+      .feature-icon {
+        width: 50px !important;
+        height: 50px !important;
+      }
+      
+      .service-icon {
+        width: 50px !important;
+        height: 50px !important;
+      }
+      
+      .stat-icon {
+        width: 50px !important;
+        height: 50px !important;
+      }
+      
+      .counter {
+        font-size: 1.75rem;
+      }
+    }
+    
+    /* Call to Action Section */
+    .btn-outline-light {
+      border-width: 2px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline-light:hover {
+      background-color: #fff;
+      color: #dc3545 !important;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn-light {
+      transition: all 0.3s ease;
+    }
+    
+    .btn-light:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+  
+  
+
+    <!-- Contact & Footer Start -->
+    <div id="contact" class="container-fluid bg-dark text-white-50 footer pt-5" style="background-color: #000000 !important">
+      <div class="container py-5">
+        <div class="row g-5">
+          <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+            <a href="index.html" class="d-inline-block mb-3">
+              <img
+                src="img/tgs-footer.png"
+                alt="TGS"
+                class="img-fluid"
+                style="width: 120px; height: 60px"
+              />
+            </a>
+            <p class="mb-0">
+              TGS Caterers - Your trusted partner for exceptional catering
+              services. We specialize in creating memorable culinary experiences
+              for weddings, corporate events, and special occasions with our
+              commitment to quality and excellence.
+            </p>
+          </div>
+          <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+            <h5 class="text-white mb-4">Get In Touch</h5>
+            <p>
+              <i class="fa fa-map-marker-alt me-3"></i>123 Catering Street,
+              Mumbai, India
+            </p>
+            <p><i class="fa fa-phone-alt me-3"></i>+91 98765 43210</p>
+            <p><i class="fa fa-envelope me-3"></i>info@tgscaterers.com</p>
+            <div class="d-flex pt-2">
+              <a
+                class="btn btn-outline-primary btn-square border-2 me-2"
+                href=""
+                style="
+                  border-color: var(--bs-primary);
+                  color: var(--bs-primary);
+                "
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a
+                class="btn btn-outline-primary btn-square border-2 me-2"
+                href=""
+                style="
+                  border-color: var(--bs-primary);
+                  color: var(--bs-primary);
+                "
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                class="btn btn-outline-primary btn-square border-2 me-2"
+                href=""
+                style="
+                  border-color: var(--bs-primary);
+                  color: var(--bs-primary);
+                "
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a
+                class="btn btn-outline-primary btn-square border-2 me-2"
+                href=""
+                style="
+                  border-color: var(--bs-primary);
+                  color: var(--bs-primary);
+                "
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a class="btn btn-outline-primary btn-square border-2 mb-2" href=""
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
             </div>
+          </div>
+          <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+            <h5 class="text-white mb-4">Quick Links</h5>
+            <a class="btn btn-link" href="">About Us</a>
+            <a class="btn btn-link" href="">Contact Us</a>
+            <a class="btn btn-link" href="">Privacy Policy</a>
+            <a class="btn btn-link" href="">Terms & Condition</a>
+            <a class="btn btn-link" href="">Careers</a>
+          </div>
+          <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+            <h5 class="text-white mb-4">Our Services</h5>
+            <a class="btn btn-link" href="">Wedding Catering</a>
+            <a class="btn btn-link" href="">Corporate Events</a>
+            <a class="btn btn-link" href="">Private Parties</a>
+            <a class="btn btn-link" href="">Special Occasions</a>
+            <a class="btn btn-link" href="">Menu Planning</a>
+          </div>
         </div>
-    </div>
-    <!-- Newsletter End -->
-
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-white-50 footer pt-5">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-                    <a href="index.html" class="d-inline-block mb-3">
-                        <h1 class="text-white">iSTUDIO</h1>
-                    </a>
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
-                        amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                        clita duo justo et tempor</p>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
-                    <h5 class="text-white mb-4">Get In Touch</h5>
-                    <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-instagram"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                    <h5 class="text-white mb-4">Popular Link</h5>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Privacy Policy</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Career</a>
-                </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
-                    <h5 class="text-white mb-4">Our Services</h5>
-                    <a class="btn btn-link" href="">Interior Design</a>
-                    <a class="btn btn-link" href="">Project Planning</a>
-                    <a class="btn btn-link" href="">Renovation</a>
-                    <a class="btn btn-link" href="">Implement</a>
-                    <a class="btn btn-link" href="">Landscape Design</a>
-                </div>
+      </div>
+      <div class="container wow fadeIn" data-wow-delay="0.1s">
+        <div class="copyright">
+          <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+              &copy; <a class="border-bottom" href="#">TGS Caterers</a>, All
+              Right Reserved.
             </div>
-        </div>
-        <div class="container wow fadeIn" data-wow-delay="0.1s">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
-
-                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FAQs</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-6 text-center text-md-end">
+              <div class="footer-menu">
+                <a href="">Home</a>
+                <a href="">Services</a>
+                <a href="">Gallery</a>
+                <a href="">Contact</a>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
     <!-- Footer End -->
 
-
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="btn btn-lg btn-danger btn-lg-square back-to-top"
+      ><i class="bi bi-arrow-up"></i
+    ></a>
 
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/YOUR_WHATSAPP_NUMBER"
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <style>
+      /* Why Choose Us Section Styling */
+      .why-choose-us {
+        position: relative;
+        padding: 5rem 0;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      
+      .bg-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+      }
+      
+      .why-choose-us .container {
+        position: relative;
+        z-index: 2;
+      }
+      
+      .feature-card {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 2rem 1.5rem;
+        height: 100%;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+      }
+      
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+      
+      .feature-card i {
+        font-size: 2.5rem;
+        color: #dc3545;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+      }
+      
+      .feature-card h4 {
+        color: #343a40;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+      }
+      
+      .feature-card p {
+        color: #6c757d;
+        margin-bottom: 0;
+        line-height: 1.6;
+      }
+      
+      /* Service Cards Styling */
+      .service-card {
+        transition: all 0.3s ease;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important;
+      }
+
+      .service-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 2;
+        font-size: 0.7rem;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        padding: 0.25rem 0.75rem !important;
+        background-color: #dc3545 !important;
+        border-radius: 50px !important;
+      }
+
+      .gradient-overlay {
+        height: 50%;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+      }
+
+      .card-img-top {
+        transition: transform 0.5s ease;
+        object-fit: cover;
+      }
+
+      .service-card:hover .card-img-top {
+        transform: scale(1.05);
+      }
+
+      .filter-container {
+        margin: 0 auto;
+        max-width: 800px;
+      }
+
+      .filter-btn {
+        transition: all 0.2s ease;
+        border-radius: 50px;
+        font-weight: 500;
+        font-size: 0.85rem;
+        margin: 0.15rem;
+        border-width: 1.5px;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background-color: #dc3545 !important;
+        color: white !important;
+        border-color: #dc3545 !important;
+        transform: translateY(-1px);
+      }
+
+      .service-container .card-body {
+        padding: 1.5rem;
+        background: white;
+      }
+
+      .service-container h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .service-container .card-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1.25rem;
+        color: #6c757d !important;
+      }
+
+      @media (max-width: 767.98px) {
+        .service-container .card-body {
+          padding: 1.25rem;
+        }
+
+        .filter-btn {
+          padding: 0.25rem 0.75rem !important;
+          font-size: 0.8rem;
+        }
+
+        .service-card {
+          max-width: 100%;
+        }
+      }
+
+      @media (min-width: 768px) and (max-width: 1199.98px) {
+        .service-card {
+          max-width: 450px;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .service-card {
+          max-width: 400px;
+        }
+      }
+
+      .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        left: 40px;
+        background-color: #25d366;
+        color: #fff;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease-in-out;
+        animation: pulse 2s infinite;
+      }
+
+      .whatsapp-float:hover {
+        background-color: #128c7e;
+        transform: scale(1.1);
+        text-decoration: none;
+        color: #fff;
+      }
+
+      /* About Section Image Styling */
+      .hexagon-img-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(
+          50% 0%,
+          100% 25%,
+          100% 75%,
+          50% 100%,
+          0% 75%,
+          0% 25%
+        );
+        transition: all 0.5s ease;
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+      }
+
+      .hexagon-border {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, #ff4d4d, #ff9a9e);
+        clip-path: polygon(
+          50% 0%,
+          100% 25%,
+          100% 75%,
+          50% 100%,
+          0% 75%,
+          0% 25%
+        );
+        z-index: -1;
+        transform: scale(1.02);
+        transition: all 0.5s ease;
+      }
+
+      .hexagon-img-container:hover {
+        transform: translateY(-10px) rotate(5deg);
+      }
+
+      .hexagon-img-container:hover .hexagon-border {
+        transform: scale(1.05);
+        background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+      }
+
+      .circle-img-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: all 0.5s ease;
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+        border: 8px solid transparent;
+        background: linear-gradient(45deg, #ff4d4d, #ff9a9e) border-box;
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: destination-out;
+        mask-composite: exclude;
+      }
+
+      .circle-border {
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        right: -8px;
+        bottom: -8px;
+        background: linear-gradient(45deg, #ff4d4d, #ff9a9e);
+        border-radius: 50%;
+        z-index: -1;
+        transition: all 0.5s ease;
+        animation: rotate 15s linear infinite;
+      }
+
+      .circle-img-container:hover {
+        transform: translateY(-10px) scale(1.05);
+      }
+
+      .circle-img-container:hover .circle-border {
+        background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+        animation: rotate 10s linear infinite;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .whatsapp-float {
+          width: 50px;
+          height: 50px;
+          font-size: 25px;
+          bottom: 20px;
+          left: 15px;
+        }
+      }
+    </style>
+
+    <style>
+      /* Team Section Styling */
+      .team-card {
+        transition: all 0.3s ease;
+        height: 100%;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .team-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+      }
+
+      .team-img-container {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        border: 5px solid #f8f9fa;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      }
+
+      .team-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .team-card:hover .team-img {
+        transform: scale(1.1);
+      }
+
+      .btn-social {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 50% !important;
+        transition: all 0.3s ease;
+      }
+
+      .btn-social:hover {
+        background: #dc3545;
+        color: #fff !important;
+        transform: translateY(-3px);
+      }
+
+      @media (max-width: 991.98px) {
+        .team-img-container {
+          width: 180px;
+          height: 180px;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .team-img-container {
+          width: 160px;
+          height: 160px;
+        }
+
+        .team-card {
+          margin-bottom: 20px;
+        }
+      }
+
+      @media (max-width: 575.98px) {
+        .team-img-container {
+          width: 140px;
+          height: 140px;
+        }
+      }
+    </style>
+
+    <!-- Enquiry Modal Styles -->
+    <style>
+      /* Modal Container */
+      #enquiryModal .modal-dialog {
+        max-width: 600px;
+        margin: 1.75rem auto;
+      }
+      
+      /* Modal Header */
+      #enquiryModal .modal-header {
+        padding: 1.5rem 2rem;
+        border-radius: 0.3rem 0.3rem 0 0;
+      }
+      
+      #enquiryModal .modal-title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin: 0;
+      }
+      
+      /* Modal Body */
+      #enquiryModal .modal-body {
+        padding: 2rem;
+      }
+      
+      /* Form Elements */
+      #enquiryForm .form-label {
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        color: #333;
+      }
+      
+      #enquiryForm .form-control,
+      #enquiryForm .form-select {
+        padding: 0.75rem 1rem;
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+      }
+      
+      #enquiryForm .form-control:focus,
+      #enquiryForm .form-select:focus {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+      }
+      
+      #enquiryForm textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+      
+      /* Submit Button */
+      #enquiryForm .btn-submit {
+        padding: 0.8rem 2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+      }
+      
+      #enquiryForm .btn-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+      }
+      
+      /* Responsive Adjustments */
+      @media (max-width: 767.98px) {
+        #enquiryModal .modal-dialog {
+          margin: 0.5rem;
+          max-width: calc(100% - 1rem);
+        }
+        
+        #enquiryModal .modal-header {
+          padding: 1.25rem 1.5rem;
+        }
+        
+        #enquiryModal .modal-body {
+          padding: 1.5rem;
+        }
+        
+        #enquiryForm .btn-submit {
+          width: 100%;
+        }
+      }
+      
+      @media (max-width: 575.98px) {
+        #enquiryModal .modal-title {
+          font-size: 1.25rem;
+        }
+        
+        #enquiryForm .form-control,
+        #enquiryForm .form-select {
+          font-size: 0.9375rem;
+        }
+      }
+    </style>
+    
+    <!-- Enquiry Modal -->
+    <div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0 shadow">
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title" id="enquiryModalLabel">
+              <i class="fas fa-utensils me-2"></i>
+              Enquire About Our Services
+            </h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-0">
+            <div class="p-4">
+              <p class="text-muted mb-4">Fill out the form below and our team will get back to you within 24 hours to discuss your event requirements.</p>
+              <form id="enquiryForm">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="name" class="form-label">Full Name <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fas fa-user text-danger"></i></span>
+                      <input type="text" class="form-control" id="name" placeholder="John Doe" required>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fas fa-envelope text-danger"></i></span>
+                      <input type="email" class="form-control" id="email" placeholder="your@email.com" required>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label for="phone" class="form-label">Phone Number <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fas fa-phone-alt text-danger"></i></span>
+                      <input type="tel" class="form-control" id="phone" placeholder="+91 98765 43210" required>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label for="eventType" class="form-label">Event Type <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="fas fa-calendar-alt text-danger"></i></span>
+                      <select class="form-select" id="eventType" required>
+                        <option value="" selected disabled>Select Event Type</option>
+                        <option value="wedding">Wedding</option>
+                        <option value="corporate">Corporate Event</option>
+                        <option value="birthday">Birthday Party</option>
+                        <option value="anniversary">Anniversary</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                  <div class="col-12">
+                    <label for="eventDate" class="form-label">Event Date</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light"><i class="far fa-calendar-alt text-danger"></i></span>
+                      <input type="date" class="form-control" id="eventDate">
+                    </div>
+                  </div>
+                  
+                  <div class="col-12">
+                    <label for="message" class="form-label">Your Message</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-light align-items-start pt-2"><i class="fas fa-comment-dots text-danger"></i></span>
+                      <textarea class="form-control" id="message" rows="3" placeholder="Tell us about your event..."></textarea>
+                    </div>
+                  </div>
+                  
+                  <div class="col-12 mt-4">
+                    <button type="submit" class="btn btn-danger btn-lg w-100 py-2 btn-submit">
+                      <i class="fas fa-paper-plane me-2"></i>Send Enquiry
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            
+            <div class="bg-light p-3 border-top text-center">
+              <p class="mb-0 small text-muted">
+                <i class="fas fa-lock me-2 text-danger"></i>
+                Your information is secure and will never be shared with third parties.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-</body>
+    <!-- Isotope Filtering -->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
+    <!-- Counter Animation -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const counters = document.querySelectorAll('.counter');
+        const options = {
+          threshold: 0.8
+        };
+
+        const observer = new IntersectionObserver(function(entries, observer) {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const counter = entry.target;
+              const target = parseInt(counter.getAttribute('data-count'));
+              let count = 0;
+              const duration = 2000; // 2 seconds
+              const increment = target / (duration / 16); // 60fps
+
+              function updateCount() {
+                count += increment;
+                if (count < target) {
+                  counter.textContent = Math.ceil(count) + (counter.textContent.includes('+') ? '+' : '');
+                  requestAnimationFrame(updateCount);
+                } else {
+                  counter.textContent = counter.getAttribute('data-count') + (counter.textContent.includes('+') ? '+' : '');
+                }
+              }
+
+              updateCount();
+              observer.unobserve(counter);
+            }
+          });
+        }, options);
+
+        counters.forEach(counter => {
+          observer.observe(counter);
+        });
+      });
+    </script>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+
+    <!-- Splash Screen JavaScript -->
+    <script src="js/splash.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      // Show modal after 5 sections or 30 seconds, whichever comes first
+      document.addEventListener('DOMContentLoaded', function() {
+        // Function to show the modal
+        function showEnquiryModal() {
+          const enquiryModal = new bootstrap.Modal(document.getElementById('enquiryModal'));
+          enquiryModal.show();
+          
+          // Don't show again for 7 days if user closes it
+          document.querySelector('#enquiryModal .btn-close').addEventListener('click', function() {
+            localStorage.setItem('enquiryModalClosed', new Date().getTime());
+          });
+          
+          // Handle form submission
+          document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Thank you for your enquiry! We will get back to you soon.');
+            const modal = bootstrap.Modal.getInstance(document.getElementById('enquiryModal'));
+            modal.hide();
+            // Don't show again for 7 days after submission
+            localStorage.setItem('enquiryModalClosed', new Date().getTime());
+          });
+        }
+
+        // Check if modal was closed in the last 7 days
+        const lastClosed = localStorage.getItem('enquiryModalClosed');
+        const oneWeek = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
+        
+        if (!lastClosed || (new Date().getTime() - lastClosed) > oneWeek) {
+          // Show modal after 30 seconds or after scrolling past 5 sections
+          const timer = setTimeout(showEnquiryModal, 30000);
+          
+          // Show modal after scrolling past 5 sections
+          window.addEventListener('scroll', function checkScroll() {
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const pageHeight = document.documentElement.scrollHeight;
+            const scrollPercentage = (scrollPosition / pageHeight) * 100;
+            
+            if (scrollPercentage > 60) { // After about 5 sections
+              clearTimeout(timer);
+              showEnquiryModal();
+              window.removeEventListener('scroll', checkScroll);
+            }
+          });
+        }
+      });
+    </script>
+  </body>
 </html>
